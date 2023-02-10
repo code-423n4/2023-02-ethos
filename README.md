@@ -12,21 +12,6 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 
 ---
 
-# Contest setup
-
-## 🐺 C4: Set up repos
-- [ ] Create a new private repo named `YYYY-MM-sponsorname` using this repo as a template.
-- [ ] Rename this repo to reflect contest date (if applicable)
-- [ ] Rename contest H1 below
-- [ ] Update pot sizes
-- [ ] Fill in start and end times in contest bullets below
-- [ ] Add link to submission form in contest details below
-- [ ] Add the information from the scoping form to the "Scoping Details" section at the bottom of this readme.
-- [ ] Add matching info to the [code423n4.com public contest data here](https://github.com/code-423n4/code423n4.com/blob/main/_data/contests/contests.csv))
-- [ ] Add sponsor to this private repo with 'maintain' level access.
-- [ ] Send the sponsor contact the url for this repo to follow the instructions below and add contracts here. 
-- [ ] Delete this checklist.
-
 # Repo setup
 
 ## ⭐️ Sponsor: Add code to this repo
@@ -61,19 +46,18 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
 ---
 
-# Sponsorname contest details
-- Total Prize Pool: Sum of below awards
-  - HM awards: XXX XXX (Notion Field: Main Pool)
-  - QA report awards: XXX XXX (Notion Field: QA Pool, usually 10% of total award pool)
-  - Gas report awards: XXX XXX (Notion Field: Gas Pool, usually 5% of total award pool)
-  - Judge + presort awards: XXX XXX (Notion Field: Judge Fee)
+# Ethos Reserve contest details
+- Total Prize Pool: $144,500
+  - HM awards: $102,000 USDC 
+  - QA report awards: $12,000 USDC (Notion Field: QA Pool, usually 10% of total award pool)
+  - Gas report awards: $6,000 USDC (Notion Field: Gas Pool, usually 5% of total award pool)
+  - Judge + presort awards: $24,000 USDC (Notion Field: Judge Fee)
   - Scout awards: $500 USDC (this field doesn't exist in Notion yet, usually $500 USDC)
-  - (this line can be removed if there is no mitigation) Mitigation review contest: XXX XXX (*Opportunity goes to top X certified wardens based on placement in this contest.*)
 - Join [C4 Discord](https://discord.gg/code4rena) to register
-- Submit findings [using the C4 form](https://code4rena.com/contests/YYYY-MM-sponsorName-contest/submit)
+- Submit findings [using the C4 form](https://code4rena.com/contests/2023-02-ethos-reserve-contest/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
-- Starts TBD XXX XXX XX 20:00 UTC
-- Ends TBD XXX XXX XX 20:00 UTC
+- Starts February 16, 2023 20:00 UTC
+- Ends March 07, 2023 20:00 UTC
 
 ## Automated Findings / Publicly Known Issues
 
@@ -109,26 +93,23 @@ Automated findings output for the contest can be found [here](add link to report
 
 ## Scoping Details 
 ```
-- If you have a public code repo, please share it here:  
-- How many contracts are in scope?:   
-- Total SLoC for these contracts?:  
-- How many external imports are there?:  
-- How many separate interfaces and struct definitions are there for the contracts within scope?:  
-- Does most of your code generally use composition or inheritance?:   
-- How many external calls?:   
-- What is the overall line coverage percentage provided by your tests?:  
-- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?:   
-- Please describe required context:   
-- Does it use an oracle?:  
-- Does the token conform to the ERC20 standard?:  
-- Are there any novel or unique curve logic or mathematical models?: 
-- Does it use a timelock function?:  
-- Is it an NFT?: 
-- Does it have an AMM?:   
-- Is it a fork of a popular project?:   
-- Does it use rollups?:   
-- Is it multi-chain?:  
-- Does it use a side-chain?: 
+- If you have a public code repo, please share it here:  n/a
+- How many contracts are in scope?:   40
+- Total SLoC for these contracts?:  6000
+- How many external imports are there?: 15 
+- How many separate interfaces and struct definitions are there for the contracts within scope?:  25
+- Does most of your code generally use composition or inheritance?:   inheritance
+- How many external calls?:   2
+- What is the overall line coverage percentage provided by your tests?:  99
+- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?:   true
+- Please describe required context:   There are 2 systems - the stablecoin protocol and the asset management vault. The former is heavily modified from the Liquity codebase, the latter is a solidity implementation of yearn-style Multi-Strategy vaults. The stablecoin protocol deposits assets into the vault to generate yield through ActivePool.sol
+
+- Does the token conform to the ERC20 standard?:  yes
+- Are there any novel or unique curve logic or mathematical models?: It uses a curve to set the fee during high volume periods and the way it manages liquidations is pretty complex
+- Does it use an oracle?:  chainlink
+- Is it a fork or alternate implementation of another project? True; Liquity - we added multi-collateral support, made the token migratable, added a system that can farm with the underlying collateral, and changed how rewards are distributed to the stability pool. On the vault end, we re-implemented Yearn vaults in Solidity, added modern features like proxies and ERC-4626 interfaces and some extra state. 
+- Does it use a side-chain?: true; EVM-compatible side-chain
+- Describe any specific areas you would like addressed. E.g. Please try to break XYZ.: Would like users to try and break the asset management accounting, the liquidation logic, and the issuance and redemption logic, as well as the vault accounting and ERC-4626 implementation
 ```
 
 # Tests
