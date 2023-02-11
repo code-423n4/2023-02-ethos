@@ -17,8 +17,8 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 ## ⭐️ Sponsor: Add code to this repo
 
 - [ ] Create a PR to this repo with the below changes:
-- [ ] Provide a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
-- [ ] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
+- [X] Provide a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
+- [X] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
 - [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 24 hours prior to contest start time.**
 - [ ] Be prepared for a 🚨code freeze🚨 for the duration of the contest — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the contest. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
 
@@ -29,17 +29,17 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 
 Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
-- [ ] Modify the bottom of this `README.md` file to describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing. ([Here's a well-constructed example.](https://github.com/code-423n4/2022-08-foundation#readme))
-  - [ ] When linking, please provide all links as full absolute links versus relative links
-  - [ ] All information should be provided in markdown format (HTML does not render on Code4rena.com)
-- [ ] Under the "Scope" heading, provide the name of each contract and:
-  - [ ] source lines of code (excluding blank lines and comments) in each
+- [X] Modify the bottom of this `README.md` file to describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing. ([Here's a well-constructed example.](https://github.com/code-423n4/2022-08-foundation#readme))
+  - [X] When linking, please provide all links as full absolute links versus relative links
+  - [X] All information should be provided in markdown format (HTML does not render on Code4rena.com)
+- [X] Under the "Scope" heading, provide the name of each contract and:
+  - [X] source lines of code (excluding blank lines and comments) in each
   - [ ] external contracts called in each
   - [ ] libraries used in each
-- [ ] Describe any novel or unique curve logic or mathematical models implemented in the contracts
-- [ ] Does the token conform to the ERC-20 standard? In what specific ways does it differ?
-- [ ] Describe anything else that adds any special logic that makes your approach unique
-- [ ] Identify any areas of specific concern in reviewing the code
+- [X] Describe any novel or unique curve logic or mathematical models implemented in the contracts
+- [X] Does the token conform to the ERC-20 standard? In what specific ways does it differ?
+- [X] Describe anything else that adds any special logic that makes your approach unique
+- [X] Identify any areas of specific concern in reviewing the code
 - [ ] Optional / nice to have: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
 - [ ] See also: [this checklist in Notion](https://code4rena.notion.site/Key-info-for-Code4rena-sponsors-f60764c4c4574bbf8e7a6dbd72cc49b4#0cafa01e6201462e9f78677a39e09746)
 - [ ] Delete this checklist and all text above the line below when you're ready.
@@ -69,51 +69,90 @@ Automated findings output for the contest can be found [here](add link to report
 
 # Overview
 
-*Please provide some context about the code being audited, and identify any areas of specific concern in reviewing the code. (This is a good place to link to your docs, if you have them.)*
+An overview of the codebase can be found [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/).
+A relatively simple explanation of the system can be found [here](https://medium.com/byte-masons/introducing-ethos-reserve-5f08fa6af52a).
+You can find definitions for all the terms used in the system [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/~/changes/1/glossary).
+A table describing liquidations under different contexts can be found [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/liquidation-logic).
+
+Please familiarize yourself with the following acronyms...
+
+`Individual collateralization ratio (ICR):` a Trove's ICR is the ratio of the dollar value of its entire collateral at the current ETH:USD price, to its entire debt
+`Nominal collateralization ratio (nominal ICR, NICR):` a Trove's nominal ICR is its entire collateral (in ETH) multiplied by 100e18 and divided by its entire debt.
+`Total collateralization ratio (TCR):` the ratio of the dollar value of the entire system collateral at the current ETH:USD price, to the entire system debt
+`Critical collateralization ratio (CCR):` When the TCR is below the CCR, the system enters Recovery Mode.
+
+...and then gain an understanding of different liquidation contexts [here(https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/liquidation-logic)]
 
 # Scope
 
-*List all files in scope in the table below (along with hyperlinks) -- and feel free to add notes here to emphasize areas of focus.*
-
-*For line of code counts, we recommend using [cloc](https://github.com/AlDanial/cloc).* 
-
-| Contract | SLOC | Purpose | Libraries used |  
-| ----------- | ----------- | ----------- | ----------- |
-| [contracts/folder/sample.sol](contracts/folder/sample.sol) | 123 | This contract does XYZ | [`@openzeppelin/*`](https://openzeppelin.com/contracts/) |
+| Contract | SLOC | Purpose |  
+| ----------- | ----------- | ----------- |
+| [contracts/CollateralConfig.sol](contracts/CollateralConfig.sol) | 71 | [CollateralConfig Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/collateralconfig) |
+| [contracts/BorrowerOperations.sol](contracts/BorrowerOperations.sol) | 455 | [BorrowerOperations Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/borroweroperations) |
+| [contracts/TroveManager.sol](contracts/TroveManager.sol) | 935 | [TroveManager Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/trovemanager) |
+| [contracts/ActivePool.sol](contracts/ActivePool.sol) | 251 | [ActivePool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/activepool) |
+| [contracts/DefaultPool.sol](contracts/DefaultPool.sol) | 84 | [DefaultPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/defaultpool) |
+| [contracts/CollSurplusPool.sol](contracts/CollSurplusPool.sol) | 93 | [CollSurplusPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/collsurpluspool) |
+| [contracts/GasPool.sol](contracts/GasPool.sol) | 3 | [GasPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/gaspool) |
+| [contracts/StabilityPool.sol](contracts/StabilityPool.sol) | 404 | [StabilityPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/stabilitypool) |
+| [contracts/CommunityIssuance.sol](contracts/CommunityIssuance.sol) | 71 | [CommunityIssuance Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/communityissuance) |
+| [contracts/LQTYStaking.sol](contracts/LQTYStaking.sol) | 183 | [LQTYStaking Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/lqtystaking) |
 
 ## Out of scope
 
-*List any files/contracts that are out of scope for this audit.*
+While some of these files might be good to add context for in-scope contracts, we won't be offering bounties for issues within them.
+
+`contracts/Dependencies`
+`contracts/Proxy`
+`contracts/TestContracts/`
 
 # Additional Context
 
-*Describe any novel or unique curve logic or mathematical models implemented in the contracts*
+While we made broad changes to the Liquity codebase, the test suite has been updated to support them. We abided by their design patterns throughout, with the riskiest areas being the following:
 
-*Sponsor, please confirm/edit the information below.*
+* active pool rebalancing with vault (assuming vault is not incurring losses): `contracts/ActivePool.sol`, `contracts/TestContracts/ERC4626.sol`
+* community issuance to stability pool: `contracts/LQTY/CommunityIssuance.sol`, `contracts/StabilityPool.sol`
+* decimal conversions within the system when dealing with collateral that's non-18 decimals
 
 ## Scoping Details 
 ```
 - If you have a public code repo, please share it here:  n/a
-- How many contracts are in scope?:   40
-- Total SLoC for these contracts?:  6000
+- How many contracts are in scope?:   28
+- Total SLoC for these contracts?:  4000
 - How many external imports are there?: 15 
 - How many separate interfaces and struct definitions are there for the contracts within scope?:  25
 - Does most of your code generally use composition or inheritance?:   inheritance
 - How many external calls?:   2
-- What is the overall line coverage percentage provided by your tests?:  99
+- What is the overall line coverage percentage provided by your tests?:  95
 - Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?:   true
-- Please describe required context:   There are 2 systems - the stablecoin protocol and the asset management vault. The former is heavily modified from the Liquity codebase, the latter is a solidity implementation of yearn-style Multi-Strategy vaults. The stablecoin protocol deposits assets into the vault to generate yield through ActivePool.sol
+- Please describe required context:   There are 2 systems - the stablecoin protocol and the asset management vault. The former is heavily modified from the Liquity codebase, the latter is a modified solidity implementation of yearn-style Multi-Strategy vaults. The stablecoin protocol deposits assets into the vault to generate yield through ActivePool.sol.
 
 - Does the token conform to the ERC20 standard?:  yes
-- Are there any novel or unique curve logic or mathematical models?: It uses a curve to set the fee during high volume periods and the way it manages liquidations is pretty complex
-- Does it use an oracle?:  chainlink
+- Are there any novel or unique curve logic or mathematical models?: It uses a curve to set the fee during high volume periods
+- Does it use an oracle?:  Chainlink, with Tellor oracles as backup
 - Is it a fork or alternate implementation of another project? True; Liquity - we added multi-collateral support, made the token migratable, added a system that can farm with the underlying collateral, and changed how rewards are distributed to the stability pool. On the vault end, we re-implemented Yearn vaults in Solidity, added modern features like proxies and ERC-4626 interfaces and some extra state. 
-- Does it use a side-chain?: true; EVM-compatible side-chain
-- Describe any specific areas you would like addressed. E.g. Please try to break XYZ.: Would like users to try and break the asset management accounting, the liquidation logic, and the issuance and redemption logic, as well as the vault accounting and ERC-4626 implementation
+- Does it use a side-chain?: true; EVM-compatible side-chain or Layer 2 networks
+- Describe any specific areas you would like addressed. E.g. Please try to break XYZ.: Would like users to try and break the asset management accounting, the liquidation logic, and the issuance and redemption logic
 ```
 
 # Tests
 
-*Provide every step required to build the project from a fresh git clone, as well as steps to run the tests with a gas report.* 
+First clone the repository and install dependencies using:
+```
+yarn install
+```
+
+Run all tests with `npx hardhat test`, or run a specific test with `npx hardhat test ./test/contractTest.js`
+
+To run a specific test in a file without running others, append the `it` method with `.only` like this:
+```
+it.only("name of test")
+```
+Hardhat will only run tests using the `.only` method in that file
+
+## Known Issues
+
+There is a loss of precision in line 112 of `CommunityIssuance.sol`. Though we consider this out of the contest's scope, we are open to field arguments for implementation changes under the QA bucket of rewards.
+*Provide every step required to build the project from a fresh git clone, as well as steps to run the tests with a gas report.*
 
 *Note: Many wardens run Slither as a first pass for testing.  Please document any known errors with no workaround.* 

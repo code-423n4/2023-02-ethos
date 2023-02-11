@@ -1,0 +1,92 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "PriceFeedTestnet",
+  "sourceName": "contracts/TestContracts/PriceFeedTestnet.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_collateral",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_lastGoodPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "LastGoodPriceUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_collateral",
+          "type": "address"
+        }
+      ],
+      "name": "fetchPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_collateral",
+          "type": "address"
+        }
+      ],
+      "name": "getPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_collateral",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "setPrice",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b506101c5806100206000396000f3fe608060405234801561001057600080fd5b50600436106100405760003560e01c8062e4768b1461004557806341976e0914610085578063ace1798e146100bd575b600080fd5b6100716004803603604081101561005b57600080fd5b506001600160a01b0381351690602001356100e3565b604080519115158252519081900360200190f35b6100ab6004803603602081101561009b57600080fd5b50356001600160a01b0316610103565b60408051918252519081900360200190f35b6100ab600480360360208110156100d357600080fd5b50356001600160a01b031661011e565b6001600160a01b0391909116600090815260208190526040902055600190565b6001600160a01b031660009081526020819052604090205490565b6001600160a01b03811660008181526020818152604080832054815194855291840191909152805191927f9a696fe6a955b23852e2b245b6847dfda7d8944623d9b42628e087344ad17963929081900390910190a1506001600160a01b03166000908152602081905260409020549056fea2646970667358221220a25effacb3e00fb5d57562e15c8803b310adfac5cffa5ef861c868f3185625cb64736f6c634300060b0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100405760003560e01c8062e4768b1461004557806341976e0914610085578063ace1798e146100bd575b600080fd5b6100716004803603604081101561005b57600080fd5b506001600160a01b0381351690602001356100e3565b604080519115158252519081900360200190f35b6100ab6004803603602081101561009b57600080fd5b50356001600160a01b0316610103565b60408051918252519081900360200190f35b6100ab600480360360208110156100d357600080fd5b50356001600160a01b031661011e565b6001600160a01b0391909116600090815260208190526040902055600190565b6001600160a01b031660009081526020819052604090205490565b6001600160a01b03811660008181526020818152604080832054815194855291840191909152805191927f9a696fe6a955b23852e2b245b6847dfda7d8944623d9b42628e087344ad17963929081900390910190a1506001600160a01b03166000908152602081905260409020549056fea2646970667358221220a25effacb3e00fb5d57562e15c8803b310adfac5cffa5ef861c868f3185625cb64736f6c634300060b0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
