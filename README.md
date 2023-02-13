@@ -61,18 +61,16 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
 ## Automated Findings / Publicly Known Issues
 
-Automated findings output for the contest can be found [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/slither-output).
+Automated findings output for the contest can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/slither-output-ethos).
 
-Slither touches on some hot spots in our code, and while some of the findings may seem like false positives at face value, we invite you to look deeper. These concerns include issues with the handling of decimals and data structures. It is recommend that you compare Ethos' slither output above to Liquity's [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/slither-output-liquity).
+Slither touches on some hot spots in our code, and while some of the findings may seem like false positives at face value, we invite you to look deeper. These concerns include issues with the handling of decimals and data structures. It is recommend that you compare Ethos' slither output above to Liquity's [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/slither-output-liquity).
 
 # Overview
 
-You can use a live version of Ethos Reserve [here](c4.ethos.finance). It is deployed on Optimism utilizing a real asset management vault, the code for which you can find [here](https://github.com/Byte-Masons/ethos-vaults).
-
-An overview of the codebase can be found [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/).  
+An overview of the codebase can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/).  
 A relatively simple explanation of the system can be found [here](https://medium.com/byte-masons/introducing-ethos-reserve-5f08fa6af52a).  
-You can find definitions for all the terms used in the system [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/~/changes/1/glossary).  
-A table describing liquidations under different contexts can be found [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/liquidation-logic).  
+You can find definitions for all the terms used in the system [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/glossary).  
+A table describing liquidations under different contexts can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/liquidation-logic).  
   
 Please familiarize yourself with the following acronyms...  
   
@@ -83,6 +81,8 @@ Please familiarize yourself with the following acronyms...
 
 ...and then gain an understanding of different liquidation contexts [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/liquidation-logic)
 
+You can use a live version of Ethos Reserve [here](c4.ethos.finance). It is deployed on Optimism utilizing a real asset management vault, the code for which you can find [here](https://github.com/Byte-Masons/ethos-vaults).
+
 # Scope
 
 Many Ethos contracts utilize external calls to execute their business logic, but these calls are primarily sent to other contracts WITHIN the system. Ensure access control is tight between each of these components and that there isn't any way for an attacker to insert malicious logic.
@@ -91,13 +91,15 @@ There are 2 main points at which calls leave to other systems entirely - in the 
 
 | Contract | SLOC | External Calls | Libraries | Purpose |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| [contracts/CollateralConfig.sol](contracts/CollateralConfig.sol) | 71 | 0 | 3 | [CollateralConfig Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/collateralconfig) |
-| [contracts/BorrowerOperations.sol](contracts/BorrowerOperations.sol) | 455 | 6 | 4 | [BorrowerOperations Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/borroweroperations) |
-| [contracts/TroveManager.sol](contracts/TroveManager.sol) | 935 | 7 | 2 | [TroveManager Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/trovemanager) |
-| [contracts/ActivePool.sol](contracts/ActivePool.sol) | 251 | 7 | 5 | [ActivePool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/activepool) |
-| [contracts/StabilityPool.sol](contracts/StabilityPool.sol) | 404 | 7 | 6 | [StabilityPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/stabilitypool) |
-| [contracts/CommunityIssuance.sol](contracts/CommunityIssuance.sol) | 71 | 2 | 5 | [CommunityIssuance Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/communityissuance) |
-| [contracts/LQTYStaking.sol](contracts/LQTYStaking.sol) | 183 | 4 | 7 | [LQTYStaking Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/lqtystaking) |
+| [contracts/CollateralConfig.sol](contracts/CollateralConfig.sol) | 71 | 0 | 3 | [CollateralConfig Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/collateralconfig) |
+| [contracts/BorrowerOperations.sol](contracts/BorrowerOperations.sol) | 455 | 6 | 4 | [BorrowerOperations Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/borroweroperations) |
+| [contracts/TroveManager.sol](contracts/TroveManager.sol) | 935 | 7 | 2 | [TroveManager Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/trovemanager) |
+| [contracts/ActivePool.sol](contracts/ActivePool.sol) | 251 | 7 | 5 | [ActivePool Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/activepool) |
+| [contracts/StabilityPool.sol](contracts/StabilityPool.sol) | 404 | 7 | 6 | [StabilityPool Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/stabilitypool) |
+| [contracts/CommunityIssuance.sol](contracts/CommunityIssuance.sol) | 71 | 2 | 5 | [CommunityIssuance Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/communityissuance) |
+| [contracts/LQTYStaking.sol](contracts/LQTYStaking.sol) | 183 | 4 | 7 | [LQTYStaking Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/lqtystaking) |
+
+While we included the most heavily modified contracts in the table above, we are open to considering any critical bug found in the codebase for bounties. Covered bugs would be those which would result in a 
 
 ## Out of scope
 
