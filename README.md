@@ -87,15 +87,19 @@ Please familiarize yourself with the following acronyms...
 
 # Scope
 
+Many Ethos contracts utilize external calls to execute their business logic, but these calls are primarily sent to other contracts WITHIN the system. Ensure access control is tight between each of these components and that there isn't any way for an attacker to insert malicious logic.
+
+There are 2 main points at which calls leave to other systems entirely - in the PriceFeed to read Chainlink oracles and in the ActivePool to deposit assets into an ERC-4626 vault.
+
 | Contract | SLOC | External Calls | Libraries | Purpose |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| [contracts/CollateralConfig.sol](contracts/CollateralConfig.sol) | 71 | [CollateralConfig Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/collateralconfig) |
-| [contracts/BorrowerOperations.sol](contracts/BorrowerOperations.sol) | 455 | [BorrowerOperations Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/borroweroperations) |
-| [contracts/TroveManager.sol](contracts/TroveManager.sol) | 935 | [TroveManager Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/trovemanager) |
-| [contracts/ActivePool.sol](contracts/ActivePool.sol) | 251 | [ActivePool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/activepool) |
-| [contracts/StabilityPool.sol](contracts/StabilityPool.sol) | 404 | [StabilityPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/stabilitypool) |
-| [contracts/CommunityIssuance.sol](contracts/CommunityIssuance.sol) | 71 | [CommunityIssuance Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/communityissuance) |
-| [contracts/LQTYStaking.sol](contracts/LQTYStaking.sol) | 183 | [LQTYStaking Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/lqtystaking) |
+| [contracts/CollateralConfig.sol](contracts/CollateralConfig.sol) | 71 | 0 | 3 | [CollateralConfig Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/collateralconfig) |
+| [contracts/BorrowerOperations.sol](contracts/BorrowerOperations.sol) | 455 | 6 | 4 | [BorrowerOperations Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/borroweroperations) |
+| [contracts/TroveManager.sol](contracts/TroveManager.sol) | 935 | 7 | 2 | [TroveManager Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/trovemanager) |
+| [contracts/ActivePool.sol](contracts/ActivePool.sol) | 251 | 7 | 5 | [ActivePool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/activepool) |
+| [contracts/StabilityPool.sol](contracts/StabilityPool.sol) | 404 | 7 | 6 | [StabilityPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/stabilitypool) |
+| [contracts/CommunityIssuance.sol](contracts/CommunityIssuance.sol) | 71 | 2 | 5 | [CommunityIssuance Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/communityissuance) |
+| [contracts/LQTYStaking.sol](contracts/LQTYStaking.sol) | 183 | 4 | 7 | [LQTYStaking Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/lqtystaking) |
 
 ## Out of scope
 
