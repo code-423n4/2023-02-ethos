@@ -69,13 +69,15 @@ Automated findings output for the contest can be found [here](add link to report
 
 # Overview
 
-An overview of the codebase can be found [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/).
-A relatively simple explanation of the system can be found [here](https://medium.com/byte-masons/introducing-ethos-reserve-5f08fa6af52a).
-You can find definitions for all the terms used in the system [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/~/changes/1/glossary).
-A table describing liquidations under different contexts can be found [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/liquidation-logic).
+We will deploy a live version of Ethos Reserve on Optimism Mainnet that uses a real asset management vault
 
-Please familiarize yourself with the following acronyms...
-
+An overview of the codebase can be found [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/).  
+A relatively simple explanation of the system can be found [here](https://medium.com/byte-masons/introducing-ethos-reserve-5f08fa6af52a).  
+You can find definitions for all the terms used in the system [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/~/changes/1/glossary).  
+A table describing liquidations under different contexts can be found [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/liquidation-logic).  
+  
+Please familiarize yourself with the following acronyms...  
+  
 `Individual collateralization ratio (ICR):` a Trove's ICR is the ratio of the dollar value of its entire collateral at the current ETH:USD price, to its entire debt.  
 `Nominal collateralization ratio (nominal ICR, NICR):` a Trove's nominal ICR is its entire collateral (in ETH) multiplied by 100e18 and divided by its entire debt.  
 `Total collateralization ratio (TCR):` the ratio of the dollar value of the entire system collateral at the current ETH:USD price, to the entire system debt.  
@@ -85,39 +87,31 @@ Please familiarize yourself with the following acronyms...
 
 # Scope
 
-Many Ethos contracts utilize external calls to execute their business logic, but these calls are primarily sent to other contracts WITHIN the system. Ensure access control is tight between each of these components and that there isn't any way for an attacker to insert malicious logic.
-
-There are 2 main points at which calls leave to other systems entirely - in the pricefeed to read Chainlink oracles and in the ActivePool to deposit assets into an ERC-4626 vault.
-
 | Contract | SLOC | External Calls | Libraries | Purpose |
-| ----------- | ----------- | ----------- | ----------- | ----------- |
-| [contracts/CollateralConfig.sol](contracts/CollateralConfig.sol) | 71 | 0 | 3 | [CollateralConfig Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/collateralconfig) |
-| [contracts/BorrowerOperations.sol](contracts/BorrowerOperations.sol) | 455 | 6 | 4 | [BorrowerOperations Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/borroweroperations) |
-| [contracts/TroveManager.sol](contracts/TroveManager.sol) | 935 | 7 | 2 | [TroveManager Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/trovemanager) |
-| [contracts/ActivePool.sol](contracts/ActivePool.sol) | 251 | 7 | 5 | [ActivePool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/activepool) |
-| [contracts/DefaultPool.sol](contracts/DefaultPool.sol) | 84 | 2 | 5 | [DefaultPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/defaultpool) |
-| [contracts/CollSurplusPool.sol](contracts/CollSurplusPool.sol) | 93 | 1 | 5 | [CollSurplusPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/collsurpluspool) |
-| [contracts/GasPool.sol](contracts/GasPool.sol) | 3 | 0 | 0 | [GasPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/gaspool) |
-| [contracts/StabilityPool.sol](contracts/StabilityPool.sol) | 404 | 7 | 6 | [StabilityPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/stabilitypool) |
-| [contracts/CommunityIssuance.sol](contracts/CommunityIssuance.sol) | 71 | 2 | 5 | [CommunityIssuance Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/communityissuance) |
-| [contracts/LQTYStaking.sol](contracts/LQTYStaking.sol) | 183 | 4 | 7 | [LQTYStaking Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/lqtystaking) |
-| [contracts/SortedTroves.sol](contracts/SortedTroves.sol) | 201 | 2 | 4 | [SortedTroves Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/~/changes/4/contracts/sortedtroves) |
+| ----------- | ----------- | ----------- | ----------- |
+| [contracts/CollateralConfig.sol](contracts/CollateralConfig.sol) | 71 | [CollateralConfig Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/collateralconfig) |
+| [contracts/BorrowerOperations.sol](contracts/BorrowerOperations.sol) | 455 | [BorrowerOperations Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/borroweroperations) |
+| [contracts/TroveManager.sol](contracts/TroveManager.sol) | 935 | [TroveManager Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/trovemanager) |
+| [contracts/ActivePool.sol](contracts/ActivePool.sol) | 251 | [ActivePool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/activepool) |
+| [contracts/StabilityPool.sol](contracts/StabilityPool.sol) | 404 | [StabilityPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/stabilitypool) |
+| [contracts/CommunityIssuance.sol](contracts/CommunityIssuance.sol) | 71 | [CommunityIssuance Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/communityissuance) |
+| [contracts/LQTYStaking.sol](contracts/LQTYStaking.sol) | 183 | [LQTYStaking Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/lqtystaking) |
 
 ## Out of scope
 
 While some of these files might be good to add context for in-scope contracts, we won't be offering bounties for issues within them.
 
-`contracts/Dependencies`
-`contracts/Proxy`
-`contracts/TestContracts/`
+`contracts/Dependencies`  
+`contracts/Proxy`  
+`contracts/TestContracts/`  
 
 # Additional Context
 
 While we made broad changes to the Liquity codebase, the test suite has been updated to support them. We abided by their design patterns throughout, with the riskiest areas being the following:
 
-* active pool rebalancing with vault (assuming vault is not incurring losses): `contracts/ActivePool.sol`, `contracts/TestContracts/ERC4626.sol`
-* community issuance to stability pool: `contracts/LQTY/CommunityIssuance.sol`, `contracts/StabilityPool.sol`
-* decimal conversions within the system when dealing with collateral that's non-18 decimals
+* active pool rebalancing with vault (assuming vault is not incurring losses): `contracts/ActivePool.sol`, `contracts/TestContracts/ERC4626.sol`  
+* community issuance to stability pool: `contracts/LQTY/CommunityIssuance.sol`, `contracts/StabilityPool.sol`  
+* decimal conversions within the system when dealing with collateral that's non-18 decimals  
 
 ## Scoping Details 
 ```
@@ -158,6 +152,3 @@ Hardhat will only run tests using the `.only` method in that file
 ## Known Issues
 
 There is a loss of precision in line 112 of `CommunityIssuance.sol`. Though we consider this out of the contest's scope, we are open to field arguments for implementation changes under the QA bucket of rewards.
-*Provide every step required to build the project from a fresh git clone, as well as steps to run the tests with a gas report.*
-
-*Note: Many wardens run Slither as a first pass for testing.  Please document any known errors with no workaround.* 
