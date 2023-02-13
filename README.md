@@ -34,8 +34,8 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
   - [X] All information should be provided in markdown format (HTML does not render on Code4rena.com)
 - [X] Under the "Scope" heading, provide the name of each contract and:
   - [X] source lines of code (excluding blank lines and comments) in each
-  - [ ] external contracts called in each
-  - [ ] libraries used in each
+  - [X] external contracts called in each
+  - [X] libraries used in each
 - [X] Describe any novel or unique curve logic or mathematical models implemented in the contracts
 - [X] Does the token conform to the ERC-20 standard? In what specific ways does it differ?
 - [X] Describe anything else that adds any special logic that makes your approach unique
@@ -76,27 +76,32 @@ A table describing liquidations under different contexts can be found [here](htt
 
 Please familiarize yourself with the following acronyms...
 
-`Individual collateralization ratio (ICR):` a Trove's ICR is the ratio of the dollar value of its entire collateral at the current ETH:USD price, to its entire debt
-`Nominal collateralization ratio (nominal ICR, NICR):` a Trove's nominal ICR is its entire collateral (in ETH) multiplied by 100e18 and divided by its entire debt.
-`Total collateralization ratio (TCR):` the ratio of the dollar value of the entire system collateral at the current ETH:USD price, to the entire system debt
-`Critical collateralization ratio (CCR):` When the TCR is below the CCR, the system enters Recovery Mode.
+`Individual collateralization ratio (ICR):` a Trove's ICR is the ratio of the dollar value of its entire collateral at the current ETH:USD price, to its entire debt.  
+`Nominal collateralization ratio (nominal ICR, NICR):` a Trove's nominal ICR is its entire collateral (in ETH) multiplied by 100e18 and divided by its entire debt.  
+`Total collateralization ratio (TCR):` the ratio of the dollar value of the entire system collateral at the current ETH:USD price, to the entire system debt.  
+`Critical collateralization ratio (CCR):` When the TCR is below the CCR, the system enters Recovery Mode.  
 
 ...and then gain an understanding of different liquidation contexts [here(https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/liquidation-logic)]
 
 # Scope
 
-| Contract | SLOC | Purpose |  
-| ----------- | ----------- | ----------- |
-| [contracts/CollateralConfig.sol](contracts/CollateralConfig.sol) | 71 | [CollateralConfig Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/collateralconfig) |
-| [contracts/BorrowerOperations.sol](contracts/BorrowerOperations.sol) | 455 | [BorrowerOperations Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/borroweroperations) |
-| [contracts/TroveManager.sol](contracts/TroveManager.sol) | 935 | [TroveManager Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/trovemanager) |
-| [contracts/ActivePool.sol](contracts/ActivePool.sol) | 251 | [ActivePool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/activepool) |
-| [contracts/DefaultPool.sol](contracts/DefaultPool.sol) | 84 | [DefaultPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/defaultpool) |
-| [contracts/CollSurplusPool.sol](contracts/CollSurplusPool.sol) | 93 | [CollSurplusPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/collsurpluspool) |
-| [contracts/GasPool.sol](contracts/GasPool.sol) | 3 | [GasPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/gaspool) |
-| [contracts/StabilityPool.sol](contracts/StabilityPool.sol) | 404 | [StabilityPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/stabilitypool) |
-| [contracts/CommunityIssuance.sol](contracts/CommunityIssuance.sol) | 71 | [CommunityIssuance Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/communityissuance) |
-| [contracts/LQTYStaking.sol](contracts/LQTYStaking.sol) | 183 | [LQTYStaking Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/lqtystaking) |
+Many Ethos contracts utilize external calls to execute their business logic, but these calls are primarily sent to other contracts WITHIN the system. Ensure access control is tight between each of these components and that there isn't any way for an attacker to insert malicious logic.
+
+There are 2 main points at which calls leave to other systems entirely - in the pricefeed to read Chainlink oracles and in the ActivePool to deposit assets into an ERC-4626 vault.
+
+| Contract | SLOC | External Calls | Libraries | Purpose |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| [contracts/CollateralConfig.sol](contracts/CollateralConfig.sol) | 71 | 0 | 3 | [CollateralConfig Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/collateralconfig) |
+| [contracts/BorrowerOperations.sol](contracts/BorrowerOperations.sol) | 455 | 6 | 4 | [BorrowerOperations Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/borroweroperations) |
+| [contracts/TroveManager.sol](contracts/TroveManager.sol) | 935 | 7 | 2 | [TroveManager Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/trovemanager) |
+| [contracts/ActivePool.sol](contracts/ActivePool.sol) | 251 | 7 | 5 | [ActivePool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/activepool) |
+| [contracts/DefaultPool.sol](contracts/DefaultPool.sol) | 84 | 2 | 5 | [DefaultPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/defaultpool) |
+| [contracts/CollSurplusPool.sol](contracts/CollSurplusPool.sol) | 93 | 1 | 5 | [CollSurplusPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/collsurpluspool) |
+| [contracts/GasPool.sol](contracts/GasPool.sol) | 3 | 0 | 0 | [GasPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/gaspool) |
+| [contracts/StabilityPool.sol](contracts/StabilityPool.sol) | 404 | 7 | 6 | [StabilityPool Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/stabilitypool) |
+| [contracts/CommunityIssuance.sol](contracts/CommunityIssuance.sol) | 71 | 2 | 5 | [CommunityIssuance Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/communityissuance) |
+| [contracts/LQTYStaking.sol](contracts/LQTYStaking.sol) | 183 | 4 | 7 | [LQTYStaking Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/contracts/lqtystaking) |
+| [contracts/SortedTroves.sol](contracts/SortedTroves.sol) | 201 | 2 | 4 | [SortedTroves Description](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/~/changes/4/contracts/sortedtroves) |
 
 ## Out of scope
 
