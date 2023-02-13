@@ -16,11 +16,11 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 
 ## ⭐️ Sponsor: Add code to this repo
 
-- [ ] Create a PR to this repo with the below changes:
+- [X] Create a PR to this repo with the below changes:
 - [X] Provide a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
 - [X] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 24 hours prior to contest start time.**
-- [ ] Be prepared for a 🚨code freeze🚨 for the duration of the contest — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the contest. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
+- [X] Please have final versions of contracts and documentation added/updated in this repo **no less than 24 hours prior to contest start time.**
+- [X] Be prepared for a 🚨code freeze🚨 for the duration of the contest — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the contest. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
 
 
 ---
@@ -41,7 +41,7 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 - [X] Describe anything else that adds any special logic that makes your approach unique
 - [X] Identify any areas of specific concern in reviewing the code
 - [ ] Optional / nice to have: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] See also: [this checklist in Notion](https://code4rena.notion.site/Key-info-for-Code4rena-sponsors-f60764c4c4574bbf8e7a6dbd72cc49b4#0cafa01e6201462e9f78677a39e09746)
+- [X] See also: [this checklist in Notion](https://code4rena.notion.site/Key-info-for-Code4rena-sponsors-f60764c4c4574bbf8e7a6dbd72cc49b4#0cafa01e6201462e9f78677a39e09746)
 - [ ] Delete this checklist and all text above the line below when you're ready.
 
 ---
@@ -61,15 +61,13 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
 ## Automated Findings / Publicly Known Issues
 
-Automated findings output for the contest can be found [here](add link to report) within an hour of contest opening.
+Automated findings output for the contest can be found [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/slither-output).
 
-*Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards.*
-
-[ ⭐️ SPONSORS ADD INFO HERE ]
+Slither touches on some hot spots in our code, and while some of the findings may seem like false positives at face value, we invite you to look deeper. These concerns include issues with the handling of decimals and data structures. It is recommend that you compare Ethos' slither output above to Liquity's [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/slither-output-liquity).
 
 # Overview
 
-We will deploy a live version of Ethos Reserve on Optimism Mainnet that uses a real asset management vault
+You can use a live version of Ethos Reserve [here](c4.ethos.finance). It is deployed on Optimism utilizing a real asset management vault, the code for which you can find [here](https://github.com/Byte-Masons/ethos-vaults).
 
 An overview of the codebase can be found [here](https://app.gitbook.com/o/-MaHAMvqjUJYiOUPjcHt/s/VZOmHMDAAsleBLlHxrqx/).  
 A relatively simple explanation of the system can be found [here](https://medium.com/byte-masons/introducing-ethos-reserve-5f08fa6af52a).  
