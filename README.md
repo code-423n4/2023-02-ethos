@@ -66,8 +66,8 @@ While some of these files might be good to add context for in-scope contracts, w
 `Ethos-Core/contracts/Dependencies/`  
 `Ethos-Core/contracts/Proxy/`  
 `Ethos-Core/contracts/TestContracts/`  
-`Ethos-Vault/contracts/mixins/`
-`Ethos-Vault/contracts/mixins/`
+`Ethos-Vault/contracts/mixins/`  
+`Ethos-Vault/contracts/libraries/`  
 
 # Additional Context
 
@@ -113,6 +113,10 @@ To run a specific test in a file without running others, append the `it` method 
 it.only("name of test")
 ```
 Hardhat will only run tests using the `.only` method in that file
+
+# Slither
+
+In order to get `slither` to run in `Ethos-Core`, you must append the flag `--compile-force-framework hardhat`
 
 ## Known Issues
 
