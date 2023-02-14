@@ -72,8 +72,8 @@ While some of these files might be good to add context for in-scope contracts, w
 
 While we made broad changes to the Liquity codebase, the test suite has been updated to support them. We abided by their design patterns throughout, with the riskiest areas being the following:
 
-* active pool rebalancing with vault (assuming vault is not incurring losses): `contracts/ActivePool.sol`, `contracts/TestContracts/ERC4626.sol`  
-* community issuance to stability pool: `contracts/LQTY/CommunityIssuance.sol`, `contracts/StabilityPool.sol`  
+* active pool rebalancing with vault (assuming vault is not incurring losses): `Ethos-Core/contracts/ActivePool.sol`, `Ethos-Vault/contracts/ReaperVaultV2.sol`  
+* community issuance to stability pool: `Ethos-Core/contracts/LQTY/CommunityIssuance.sol`, `Ethos-Core/contracts/StabilityPool.sol`  
 * decimal conversions within the system when dealing with collateral that's non-18 decimals  
 
 ## Scoping Details 
