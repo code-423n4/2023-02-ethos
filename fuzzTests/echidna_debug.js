@@ -65,7 +65,7 @@ contract('Echidna debugger', async accounts => {
     console.log('Trove 2', icr2_after_price, icr2_after_price.toString())
   })
 
-  it.only('LUSD balance', async () => {
+  it('LUSD balance', async () => {
     await echidnaTester.openTroveExt('0', '0', '4210965169908805439447313562489173090')
 
     const totalSupply = await lusdToken.totalSupply();
