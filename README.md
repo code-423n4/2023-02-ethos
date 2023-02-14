@@ -13,9 +13,10 @@
 
 ## Automated Findings / Publicly Known Issues
 
-Automated findings output for the contest can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/slither-output-ethos).
+Automated findings output for the Ethos-Core package can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/slither-output-ethos-core).  
+automated findings output for the Ethos-Vault package can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/slither-output-ethos-Vault).
 
-Slither touches on some hot spots in our code, and while some of the findings may seem like false positives at face value, we invite you to look deeper. These concerns include issues with the handling of decimals and data structures. It is recommend that you compare Ethos' slither output above to Liquity's [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/slither-output-liquity).
+If you're looking for a head start, we recommend that you compare Ethos-Core's slither output above to Liquity's [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/slither-output-liquity).
 
 # Overview
 
@@ -33,7 +34,7 @@ Please familiarize yourself with the following acronyms...
 
 ...and then gain an understanding of different liquidation contexts [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/liquidation-logic)
 
-You can use a live version of Ethos Reserve [here](c4.ethos.finance). It is deployed on Optimism utilizing a real asset management vault, the code for which you can find [here](https://github.com/Byte-Masons/ethos-vaults).
+You can use a live version of Ethos Reserve [here](c4.ethos.finance).
 
 # Scope
 
@@ -51,10 +52,10 @@ There are 2 main points at which calls leave to other systems entirely - in the 
 | [Ethos-Core/contracts/LQTY/CommunityIssuance.sol](Ethos-Core/contracts/LQTY/CommunityIssuance.sol) | 71 | 0 | 5 | [CommunityIssuance Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/communityissuance) |
 | [Ethos-Core/contracts/LQTY/LQTYStaking.sol](Ethos-Core/contracts/LQTY/LQTYStaking.sol) | 183 | 1 | 7 | [LQTYStaking Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/lqtystaking) |
 | [Ethos-Core/contracts/LUSDToken.sol](Ethos-Core/contracts/LUSDToken.sol) | 110 | 1 | 3 | [LUSDToken Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts-in-scope/lusdtoken) |
-| [Ethos-Vaults/contracts/ReaperVaultV2.sol](Ethos-Vaults/contracts/ReaperVaultV2.sol) | 410 | 0 | 6 | [ReaperVaultV2 Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reapervaultv2) |
-| [Ethos-Vaults/contracts/ReaperVaultERC4626.sol](Ethos-Vaults/contracts/ReaperVaultERC4626.sol) | 81 | 0 | 0 | [ReaperVaultERC4626 Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reapervaulterc4626) |
-| [Ethos-Vaults/contracts/abstract/ReaperBaseStrategyV4.sol](Ethos-Vaults/contracts/abstract/ReaperBaseStrategyV4.sol) | 115 | 0 | 5 | [ReaperBaseStrategyV4 Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reaperbasestrategyv4) |
-| [Ethos-Vaults/contracts/ReaperStrategyGranarySupplyOnly.sol](Ethos-Vaults/contracts/ReaperStrategyGranarySupplyOnly.sol) | 135 | 1 | 4 | [ReaperStrategyGranarySupplyOnly Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reaperstrategygranarysupplyonly) |
+| [Ethos-Vault/contracts/ReaperVaultV2.sol](Ethos-Vault/contracts/ReaperVaultV2.sol) | 410 | 0 | 6 | [ReaperVaultV2 Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reapervaultv2) |
+| [Ethos-Vault/contracts/ReaperVaultERC4626.sol](Ethos-Vault/contracts/ReaperVaultERC4626.sol) | 81 | 0 | 0 | [ReaperVaultERC4626 Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reapervaulterc4626) |
+| [Ethos-Vault/contracts/abstract/ReaperBaseStrategyV4.sol](Ethos-Vault/contracts/abstract/ReaperBaseStrategyV4.sol) | 115 | 0 | 5 | [ReaperBaseStrategyV4 Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reaperbasestrategyv4) |
+| [Ethos-Vault/contracts/ReaperStrategyGranarySupplyOnly.sol](Ethos-Vault/contracts/ReaperStrategyGranarySupplyOnly.sol) | 135 | 1 | 4 | [ReaperStrategyGranarySupplyOnly Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reaperstrategygranarysupplyonly) |
 
 While we included the most heavily modified contracts in the table above, we are open to considering any critical bug found in the codebase for bounties. Bugs covered in this way would be those which would result in a change to our implementation.
 
@@ -65,8 +66,8 @@ While some of these files might be good to add context for in-scope contracts, w
 `Ethos-Core/contracts/Dependencies/`  
 `Ethos-Core/contracts/Proxy/`  
 `Ethos-Core/contracts/TestContracts/`  
-`Ethos-Vaults/contracts/mixins/`
-`Ethos-Vaults/contracts/mixins/`
+`Ethos-Vault/contracts/mixins/`
+`Ethos-Vault/contracts/mixins/`
 
 # Additional Context
 
@@ -87,23 +88,23 @@ While we made broad changes to the Liquity codebase, the test suite has been upd
 - How many external calls?:   2
 - What is the overall line coverage percentage provided by your tests?:  95
 - Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?:   true
-- Please describe required context:   There are 2 systems - the stablecoin protocol and the asset management vault. The former is heavily modified from the Liquity codebase, the latter is a modified solidity implementation of yearn-style Multi-Strategy vaults. The stablecoin protocol deposits assets into the vault to generate yield through ActivePool.sol.
+- Please describe required context:   There are 2 systems - the stablecoin protocol and the asset management vault. The former is heavily modified from the Liquity codebase, the latter is a modified solidity implementation of yearn-style Multi-Strategy Vault. The stablecoin protocol deposits assets into the vault to generate yield through ActivePool.sol.
 
 - Does the token conform to the ERC20 standard?:  yes
 - Are there any novel or unique curve logic or mathematical models?: It uses a curve to set the fee during high volume periods
 - Does it use an oracle?:  Chainlink, with Tellor oracles as backup
-- Is it a fork or alternate implementation of another project? True; Liquity - we added multi-collateral support, made the token migratable, added a system that can farm with the underlying collateral, and changed how rewards are distributed to the stability pool. On the vault end, we re-implemented Yearn vaults in Solidity, added modern features like proxies and ERC-4626 interfaces and some extra state. 
+- Is it a fork or alternate implementation of another project? True; Liquity - we added multi-collateral support, made the token migratable, added a system that can farm with the underlying collateral, and changed how rewards are distributed to the stability pool. On the vault end, we re-implemented Yearn Vaults in Solidity, added modern features like proxies and ERC-4626 interfaces and some extra state. 
 - Does it use a side-chain?: true; EVM-compatible side-chain or Layer 2 networks
 - Describe any specific areas you would like addressed. E.g. Please try to break XYZ.: Would like users to try and break the asset management accounting, the liquidation logic, and the issuance and redemption logic
 ```
 
 # Tests
 
-For each package (`Ethos Core, Ethos-Vaults`), First clone the repository and install dependencies using:
+For each package (`Ethos Core, Ethos-Vault`), First clone the repository and install dependencies using:
 ```
 npm install
 ```
-In Ethos-Vaults, add a .env file using either the dummy keys provided in `.env.example` or your own.
+In Ethos-Vault, add a .env file using either the dummy keys provided in `.env.example` or your own.
 
 Run all tests with `npx hardhat test`, or run a specific test with `npx hardhat test ./test/contractTest.js`
 
