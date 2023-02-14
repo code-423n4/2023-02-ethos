@@ -37,29 +37,36 @@ You can use a live version of Ethos Reserve [here](c4.ethos.finance). It is depl
 
 # Scope
 
-Many Ethos contracts utilize external calls to execute their business logic, but these calls are primarily sent to other contracts WITHIN the system. Ensure access control is tight between each of these components and that there isn't any way for an attacker to insert malicious logic.
+Many Ethos contracts utilize external calls to execute their business logic, but these calls are primarily sent to other contracts WITHIN the system.
 
-There are 2 main points at which calls leave to other systems entirely - in the PriceFeed to read Chainlink oracles and in the ActivePool to deposit assets into an ERC-4626 vault.
+There are 2 main points at which calls leave to other systems entirely - in the PriceFeed to read Chainlink oracles and in the ActivePool to deposit assets into ReaperVaultV2.
 
 | Contract | SLOC | External Calls | Libraries | Purpose |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| [contracts/CollateralConfig.sol](contracts/CollateralConfig.sol) | 71 | 0 | 3 | [CollateralConfig Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/collateralconfig) |
-| [contracts/BorrowerOperations.sol](contracts/BorrowerOperations.sol) | 455 | 6 | 4 | [BorrowerOperations Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/borroweroperations) |
-| [contracts/TroveManager.sol](contracts/TroveManager.sol) | 935 | 7 | 2 | [TroveManager Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/trovemanager) |
-| [contracts/ActivePool.sol](contracts/ActivePool.sol) | 251 | 7 | 5 | [ActivePool Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/activepool) |
-| [contracts/StabilityPool.sol](contracts/StabilityPool.sol) | 404 | 7 | 6 | [StabilityPool Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/stabilitypool) |
-| [contracts/CommunityIssuance.sol](contracts/LQTY/CommunityIssuance.sol) | 71 | 2 | 5 | [CommunityIssuance Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/communityissuance) |
-| [contracts/LQTYStaking.sol](contracts/LQTY/LQTYStaking.sol) | 183 | 4 | 7 | [LQTYStaking Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/lqtystaking) |
+| [Ethos-Core/contracts/CollateralConfig.sol](Ethos-Core/contracts/CollateralConfig.sol) | 71 | 0 | 3 | [CollateralConfig Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/collateralconfig) |
+| [Ethos-Core/contracts/BorrowerOperations.sol](Ethos-Core/contracts/BorrowerOperations.sol) | 455 | 0 | 4 | [BorrowerOperations Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/borroweroperations) |
+| [Ethos-Core/contracts/TroveManager.sol](Ethos-Core/contracts/TroveManager.sol) | 935 | 0 | 2 | [TroveManager Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/trovemanager) |
+| [Ethos-Core/contracts/ActivePool.sol](Ethos-Core/contracts/ActivePool.sol) | 251 | 7 | 1 | [ActivePool Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/activepool) |
+| [Ethos-Core/contracts/StabilityPool.sol](Ethos-Core/contracts/StabilityPool.sol) | 404 | 1 | 6 | [StabilityPool Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/stabilitypool) |
+| [Ethos-Core/contracts/LQTY/CommunityIssuance.sol](Ethos-Core/contracts/LQTY/CommunityIssuance.sol) | 71 | 0 | 5 | [CommunityIssuance Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/communityissuance) |
+| [Ethos-Core/contracts/LQTY/LQTYStaking.sol](Ethos-Core/contracts/LQTY/LQTYStaking.sol) | 183 | 1 | 7 | [LQTYStaking Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/lqtystaking) |
+| [Ethos-Core/contracts/LUSDToken.sol](Ethos-Core/contracts/LUSDToken.sol) | 110 | 1 | 3 | [LQTYStaking Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts-in-scope/lusdtoken) |
+| [Ethos-Vaults/contracts/ReaperVaultV2.sol](Ethos-Vaults/contracts/ReaperVaultV2.sol) | 410 | 0 | 6 | [LQTYStaking Description]https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reapervaultv2) |
+| [Ethos-Vaults/contracts/ReaperVaultERC4626.sol](Ethos-Vaults/contracts/ReaperVaultERC4626.sol) | 81 | 0 | 0 | [LQTYStaking Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reapervaulterc4626) |
+| [Ethos-Vaults/contracts/abstract/ReaperBaseStrategyV4.sol](Ethos-Vaults/contracts/abstract/ReaperBaseStrategyV4.sol) | 115 | 0 | 5 | [LQTYStaking Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reaperbasestrategyv4) |
+| [Ethos-Vaults/contracts/ReaperStrategyGranarySupplyOnly.sol](Ethos-Vaults/contracts/ReaperStrategyGranarySupplyOnly.sol) | 135 | 1 | 4 | [LQTYStaking Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reaperstrategygranarysupplyonly) |
 
-While we included the most heavily modified contracts in the table above, we are open to considering any critical bug found in the codebase for bounties. Covered bugs would be those which would result in a code change.
+While we included the most heavily modified contracts in the table above, we are open to considering any critical bug found in the codebase for bounties. Bugs covered in this way would be those which would result in a change to our implementation.
 
 ## Out of scope
 
 While some of these files might be good to add context for in-scope contracts, we won't be offering bounties for issues within them.
 
-`contracts/Dependencies`  
-`contracts/Proxy`  
-`contracts/TestContracts/`  
+`Ethos-Core/contracts/Dependencies/`  
+`Ethos-Core/contracts/Proxy/`  
+`Ethos-Core/contracts/TestContracts/`  
+`Ethos-Vaults/contracts/mixins/`
+`Ethos-Vaults/contracts/mixins/`
 
 # Additional Context
 
@@ -92,10 +99,11 @@ While we made broad changes to the Liquity codebase, the test suite has been upd
 
 # Tests
 
-First clone the repository and install dependencies using:
+For each package (`Ethos Core, Ethos-Vaults`), First clone the repository and install dependencies using:
 ```
-yarn install
+npm install
 ```
+In Ethos-Vaults, add a .env file using either the dummy keys provided in `.env.example` or your own.
 
 Run all tests with `npx hardhat test`, or run a specific test with `npx hardhat test ./test/contractTest.js`
 
