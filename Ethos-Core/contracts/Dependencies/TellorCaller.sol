@@ -1,10 +1,12 @@
 // SPDX-License-Identifier: BUSL-1.1
 
 pragma solidity 0.6.11;
+pragma experimental ABIEncoderV2;
 
 import "../Interfaces/ITellorCaller.sol";
 import "./ITellor.sol";
 import "./SafeMath.sol";
+import "./UsingTellor.sol";
 /*
 * This contract has a single external function that calls Tellor: getTellorCurrentValue(). 
 *
@@ -15,14 +17,10 @@ import "./SafeMath.sol";
 * https://github.com/tellor-io/usingtellor/blob/master/contracts/UsingTellor.sol
 *
 */
-contract TellorCaller is ITellorCaller {
+contract TellorCaller is UsingTellor, ITellorCaller {
     using SafeMath for uint256;
 
-    ITellor public tellor;
-
-    constructor (address _tellorMasterAddress) public {
-        tellor = ITellor(_tellorMasterAddress);
-    }
+    constructor (address payable _tellorMasterAddress) UsingTellor(_tellorMasterAddress) public {}
 
     /*
     * getTellorCurrentValue(): identical to getCurrentValue() in UsingTellor.sol
@@ -43,11 +41,9 @@ contract TellorCaller is ITellorCaller {
             uint256 _timestampRetrieved
         )
     {
-        uint256 _count = tellor.getNewValueCountbyQueryId(_queryId);
-        uint256 _time =
-            tellor.getTimestampbyQueryIdandIndex(_queryId, _count.sub(1));
-        uint256 _value = abi.decode(tellor.retrieveData(_queryId, _time), (uint256));
-        if (_value > 0) return (true, _value, _time);
-        return (false, 0, _time);
+        (bytes memory data, uint256 timestamp) = getDataBefore(_queryId, block.timestamp - 20 minutes);
+        uint256 _value = abi.decode(data, (uint256));
+        if (timestamp == 0 || _value == 0) return (false, _value, timestamp);
+        return (true, _value, timestamp);
     }
 }
