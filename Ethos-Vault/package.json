@@ -29,7 +29,7 @@
     "eslint-plugin-n": "^15.2.4",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
-    "hardhat": "^2.12.7",
+    "hardhat": "^2.10.2",
     "husky": "^8.0.1",
     "prettier": "^2.7.1",
     "prettier-plugin-solidity": "^1.0.0-beta.24",
