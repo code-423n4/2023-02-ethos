@@ -40,7 +40,7 @@ You can use a live version of Ethos Reserve [here](c4.ethos.finance).
 
 Many Ethos contracts utilize external calls to execute their business logic, but these calls are primarily sent to other contracts WITHIN the system and access control is tested thoroughly, so we don't include them in the external calls column.  
 
-Additionally, you will find there is a lot of code in the app that we don't include in our scope - this is because the codebase we built on is heavily battle tested, we haven't made risky changes, and we've tested these areas thoroughly. If major or critical bugs are found in contracts not found in the table below, we are open to rewarding the auditor if the findings result in an implementation change.
+Additionally, you will find there is a lot of code in the app that we don't include in our scope - this is because the codebase we built on is heavily battle tested, we haven't made risky changes, and we've tested these areas thoroughly. If bugs are found in contracts not found in the table below, we are open to rewarding the auditor if the findings result in an implementation change, however the primary focus of auditors should be files included below.
 
 | Contract | SLOC | External Calls | Libraries | Purpose |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
