@@ -33,6 +33,20 @@ contract MockTellor {
 
     // --- Mock data reporting functions --- 
 
+    function getDataBefore(bytes32 _queryId, uint256 _timestamp)
+        external
+        view
+        returns (
+            bool _ifRetrieve,
+            bytes memory _value,
+            uint256 _timestampRetrieved
+        )
+    {
+        require(!revertRequest, "Tellor request reverted");
+        if (updateTime > _timestamp) return (false, bytes(""), uint256(0));
+        return (true, abi.encode(price), updateTime);
+    }
+
     function getTimestampbyQueryIdandIndex(bytes32, uint) external view returns (uint) {
         return updateTime;
     }

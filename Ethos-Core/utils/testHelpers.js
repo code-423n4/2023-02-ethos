@@ -993,7 +993,7 @@ class TestHelper {
   }
 
   static async redeemCollateralAndGetTxObject(redeemer, collAddress, contracts, LUSDAmount, gasPrice, maxFee = this._100pct) {
-    //console.log("GAS PRICE:  " + gasPrice)
+    // console.log("GAS PRICE:  " + gasPrice)
     if (gasPrice == undefined){
       gasPrice = 0;
     }

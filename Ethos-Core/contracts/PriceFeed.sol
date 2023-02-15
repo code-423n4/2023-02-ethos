@@ -37,8 +37,8 @@ contract PriceFeed is Ownable, CheckContract, BaseMath, IPriceFeed {
 
     // Use to convert a price answer to an 18-digit precision uint
     uint constant public TARGET_DIGITS = 18;
-    // TODO tess legacy Tellor "request IDs" use 6 decimals, newer Tellor "query IDs" use 18 decimals
-    uint constant public TELLOR_DIGITS = 6;
+    // legacy Tellor "request IDs" use 6 decimals, newer Tellor "query IDs" use 18 decimals
+    uint constant public TELLOR_DIGITS = 18;
 
     // Maximum time period allowed since Chainlink's latest round data timestamp, beyond which Chainlink is considered frozen.
     uint constant public TIMEOUT = 14400;  // 4 hours: 60 * 60 * 4
@@ -159,6 +159,16 @@ contract PriceFeed is Ownable, CheckContract, BaseMath, IPriceFeed {
             "PriceFeed: Chainlink must be working and current");
 
         _storeChainlinkPrice(_collateral, chainlinkResponse);
+    }
+
+    // Admin function to update the TellorCaller.
+    //
+    // !!!PLEASE USE EXTREME CARE AND CAUTION!!!
+    function updateTellorCaller(
+        address _tellorCallerAddress
+    ) external onlyOwner {
+        checkContract(_tellorCallerAddress);
+        tellorCaller = ITellorCaller(_tellorCallerAddress);
     }
 
     // --- Functions ---
@@ -509,7 +519,13 @@ contract PriceFeed is Ownable, CheckContract, BaseMath, IPriceFeed {
     }
 
     function _scaleTellorPriceByDigits(uint _price) internal pure returns (uint) {
-        return _price.mul(10**(TARGET_DIGITS - TELLOR_DIGITS));
+        uint256 price = _price;
+        if (TARGET_DIGITS > TELLOR_DIGITS) {
+            price = price.mul(10**(TARGET_DIGITS - TELLOR_DIGITS));
+        } else if (TARGET_DIGITS < TELLOR_DIGITS) {
+            price = price.div(10**(TELLOR_DIGITS - TARGET_DIGITS));
+        }
+        return price;
     }
 
     function _changeStatus(address _collateral, Status _status) internal {
