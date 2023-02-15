@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 require('dotenv').config();
 require('@openzeppelin/hardhat-upgrades');
+require("hardhat-gas-reporter");
 
 const PRIVATE_KEY = process.env.DEPLOYER_PRIVATE_KEY;
 const FTMSCAN_KEY = process.env.FTMSCAN_API_KEY;
@@ -38,4 +39,7 @@ module.exports = {
   mocha: {
     timeout: 1200000,
   },
+  gasReporter: {
+      enabled: true
+  }
 };
