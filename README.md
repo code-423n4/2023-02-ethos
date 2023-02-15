@@ -14,9 +14,9 @@
 ## Automated Findings / Publicly Known Issues
 
 Automated findings output for the Ethos-Core package can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/slither-output-ethos-core).  
-automated findings output for the Ethos-Vault package can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/slither-output-ethos-Vault).
+Automated findings output for the Ethos-Vault package can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/slither-output-ethos-Vault).
 
-If you're looking for a head start, we recommend that you compare Ethos-Core's slither output above to Liquity's [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/slither-output-liquity).
+If you're looking for a head start, we recommend that you compare Ethos-Core's slither output above to Liquity's [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/slither-output-liquity).
 
 # Overview
 
@@ -44,18 +44,18 @@ There are 2 main points at which calls leave to other systems entirely - in the 
 
 | Contract | SLOC | External Calls | Libraries | Purpose |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| [Ethos-Core/contracts/CollateralConfig.sol](Ethos-Core/contracts/CollateralConfig.sol) | 71 | 0 | 3 | [CollateralConfig Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/collateralconfig) |
-| [Ethos-Core/contracts/BorrowerOperations.sol](Ethos-Core/contracts/BorrowerOperations.sol) | 455 | 0 | 4 | [BorrowerOperations Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/borroweroperations) |
-| [Ethos-Core/contracts/TroveManager.sol](Ethos-Core/contracts/TroveManager.sol) | 935 | 0 | 2 | [TroveManager Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/trovemanager) |
-| [Ethos-Core/contracts/ActivePool.sol](Ethos-Core/contracts/ActivePool.sol) | 251 | 7 | 1 | [ActivePool Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/activepool) |
-| [Ethos-Core/contracts/StabilityPool.sol](Ethos-Core/contracts/StabilityPool.sol) | 404 | 1 | 6 | [StabilityPool Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/stabilitypool) |
-| [Ethos-Core/contracts/LQTY/CommunityIssuance.sol](Ethos-Core/contracts/LQTY/CommunityIssuance.sol) | 71 | 0 | 5 | [CommunityIssuance Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/communityissuance) |
-| [Ethos-Core/contracts/LQTY/LQTYStaking.sol](Ethos-Core/contracts/LQTY/LQTYStaking.sol) | 183 | 1 | 7 | [LQTYStaking Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/lqtystaking) |
-| [Ethos-Core/contracts/LUSDToken.sol](Ethos-Core/contracts/LUSDToken.sol) | 110 | 1 | 3 | [LUSDToken Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts-in-scope/lusdtoken) |
-| [Ethos-Vault/contracts/ReaperVaultV2.sol](Ethos-Vault/contracts/ReaperVaultV2.sol) | 410 | 0 | 6 | [ReaperVaultV2 Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reapervaultv2) |
-| [Ethos-Vault/contracts/ReaperVaultERC4626.sol](Ethos-Vault/contracts/ReaperVaultERC4626.sol) | 81 | 0 | 0 | [ReaperVaultERC4626 Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reapervaulterc4626) |
-| [Ethos-Vault/contracts/abstract/ReaperBaseStrategyV4.sol](Ethos-Vault/contracts/abstract/ReaperBaseStrategyV4.sol) | 115 | 0 | 5 | [ReaperBaseStrategyV4 Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reaperbasestrategyv4) |
-| [Ethos-Vault/contracts/ReaperStrategyGranarySupplyOnly.sol](Ethos-Vault/contracts/ReaperStrategyGranarySupplyOnly.sol) | 135 | 1 | 4 | [ReaperStrategyGranarySupplyOnly Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/reaperstrategygranarysupplyonly) |
+| [Ethos-Core/contracts/CollateralConfig.sol](https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Core/contracts/CollateralConfig.sol) | 71 | 0 | 3 | [CollateralConfig Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/collateralconfig) |
+| [Ethos-Core/contracts/BorrowerOperations.sol](https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Core/contracts/BorrowerOperations.sol) | 455 | 0 | 4 | [BorrowerOperations Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/borroweroperations) |
+| [Ethos-Core/contracts/TroveManager.sol](https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Core/contracts/TroveManager.sol) | 935 | 0 | 2 | [TroveManager Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/trovemanager) |
+| [Ethos-Core/contracts/ActivePool.sol](https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Core/contracts/ActivePool.sol) | 251 | 7 | 1 | [ActivePool Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/activepool) |
+| [Ethos-Core/contracts/StabilityPool.sol](https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Core/contracts/StabilityPool.sol) | 404 | 1 | 6 | [StabilityPool Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/stabilitypool) |
+| [Ethos-Core/contracts/LQTY/CommunityIssuance.sol](https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Core/contracts/LQTY/CommunityIssuance.sol) | 71 | 0 | 5 | [CommunityIssuance Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/communityissuance) |
+| [Ethos-Core/contracts/LQTY/LQTYStaking.sol](https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Core/contracts/LQTY/LQTYStaking.sol) | 183 | 1 | 7 | [LQTYStaking Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts/lqtystaking) |
+| [Ethos-Core/contracts/LUSDToken.sol](https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Core/contracts/LUSDToken.sol) | 110 | 1 | 3 | [LUSDToken Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts-in-scope/lusdtoken) |
+| [Ethos-Vault/contracts/ReaperVaultV2.sol](https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Vault/contracts/ReaperVaultV2.sol) | 410 | 0 | 6 | [ReaperVaultV2 Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts-in-scope/reapervaultv2) |
+| [Ethos-Vault/contracts/ReaperVaultERC4626.sol](https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Vault/contracts/ReaperVaultERC4626.sol) | 81 | 0 | 0 | [ReaperVaultERC4626 Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts-in-scope/reapervaulterc4626) |
+| [Ethos-Vault/contracts/abstract/ReaperBaseStrategyV4.sol](https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Vault/contracts/abstract/ReaperBaseStrategyv4.sol) | 115 | 0 | 5 | [ReaperBaseStrategyV4 Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts-in-scope/reaperbasestrategyv4) |
+| [Ethos-Vault/contracts/ReaperStrategyGranarySupplyOnly.sol](https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Vault/contracts/ReaperStrategyGranarySupplyOnly.sol) | 135 | 1 | 4 | [ReaperStrategyGranarySupplyOnly Description](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts-in-scope/reaperstrategygranarysupplyonly) |
 
 While we included the most heavily modified contracts in the table above, we are open to considering any critical bug found in the codebase for bounties. Bugs covered in this way would be those which would result in a change to our implementation.
 
