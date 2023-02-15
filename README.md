@@ -114,10 +114,6 @@ it.only("name of test")
 ```
 Hardhat will only run tests using the `.only` method in that file
 
-# Slither
-
-In order to get `slither` to run in `Ethos-Core`, you must append the flag `--compile-force-framework hardhat`
-
 ## Known Issues
 
 There is a loss of precision in line 112 of `CommunityIssuance.sol`. Though we consider this out of the contest's scope, we are open to field arguments for implementation changes under the QA bucket of rewards.
