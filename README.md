@@ -34,7 +34,7 @@ Please familiarize yourself with the following acronyms...
 `Total collateralization ratio (TCR):` the ratio of the dollar value of the entire system collateral at the current ETH:USD price, to the entire system debt.  
 `Critical collateralization ratio (CCR):` When the TCR is below the CCR, the system enters Recovery Mode.  
 
-...and then gain an understanding of different liquidation contexts [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/liquidation-logic)
+...and then gain an understanding of different liquidation contexts [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/liquidation-logic)
 
 You can use a live version of Ethos Reserve [here](c4.ethos.finance).
 
