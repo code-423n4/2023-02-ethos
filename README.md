@@ -80,21 +80,20 @@ While we made broad changes to the Liquity codebase, the test suite has been upd
 ## Scoping Details 
 ```
 - If you have a public code repo, please share it here:  n/a
-- How many contracts are in scope?:   28
-- Total SLoC for these contracts?:  4000
-- How many external imports are there?: 15 
-- How many separate interfaces and struct definitions are there for the contracts within scope?:  25
+- How many contracts are in scope?:   11
+- Total SLoC for these contracts?:  3500
+- How many external imports are there?: 40 
+- How many separate interfaces and struct definitions are there for the contracts within scope?:  30
 - Does most of your code generally use composition or inheritance?:   inheritance
-- How many external calls?:   2
-- What is the overall line coverage percentage provided by your tests?:  95
-- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?:   true
-- Please describe required context:   There are 2 systems - the stablecoin protocol and the asset management vault. The former is heavily modified from the Liquity codebase, the latter is a modified solidity implementation of yearn-style Multi-Strategy Vault. The stablecoin protocol deposits assets into the vault to generate yield through ActivePool.sol.
-
+- How many external calls?:   3
+- What is the overall line coverage percentage provided by your tests?:  93
+- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?:   false
+- Please describe required context:   
 - Does the token conform to the ERC20 standard?:  yes
 - Are there any novel or unique curve logic or mathematical models?: It uses a curve to set the fee during high volume periods
-- Does it use an oracle?:  Chainlink, with Tellor oracles as backup
-- Is it a fork or alternate implementation of another project? True; Liquity - we added multi-collateral support, made the token migratable, added a system that can farm with the underlying collateral, and changed how rewards are distributed to the stability pool. On the vault end, we re-implemented Yearn Vaults in Solidity, added modern features like proxies and ERC-4626 interfaces and some extra state. 
-- Does it use a side-chain?: true; EVM-compatible side-chain or Layer 2 networks
+- Does it use an oracle?:  Chainlink
+- Is it a fork or alternate implementation of another project? True; Liquity and Yearn V2 
+- Does it use a side-chain?: true
 - Describe any specific areas you would like addressed. E.g. Please try to break XYZ.: Would like users to try and break the asset management accounting, the liquidation logic, and the issuance and redemption logic
 ```
 
