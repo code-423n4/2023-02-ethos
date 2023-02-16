@@ -36,7 +36,7 @@ Please familiarize yourself with the following acronyms...
 
 ...and then gain an understanding of different liquidation contexts [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/liquidation-logic)
 
-You can use a live version of Ethos Reserve [here](c4.ethos.finance).
+A link to the live version of Ethos Reserve will be provided on Discord during the contest.
 
 # Scope
 
