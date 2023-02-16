@@ -22,8 +22,8 @@ If you're looking for a head start, we recommend that you compare Ethos-Core's s
 
 An overview of the codebase can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/).  
 A relatively simple explanation of the system can be found [here](https://medium.com/byte-masons/introducing-ethos-reserve-5f08fa6af52a).  
-You can find definitions for all the terms used in the system [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/glossary).  
-A table describing liquidations under different contexts can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/liquidation-logic).  
+You can find definitions for all the terms used in the system [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/glossary).  
+A table describing liquidations under different contexts can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/liquidation-logic).  
   
 Please familiarize yourself with the following acronyms...  
   
