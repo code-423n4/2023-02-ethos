@@ -1,10 +1,10 @@
 # Ethos Reserve contest details
 - Total Prize Pool: $144,750
   - HM awards: $102,000 USDC 
-  - QA report awards: $12,000 USDC (Notion Field: QA Pool, usually 10% of total award pool)
-  - Gas report awards: $6,000 USDC (Notion Field: Gas Pool, usually 5% of total award pool)
-  - Judge + presort awards: $24,000 USDC (Notion Field: Judge Fee)
-  - Scout awards: $750 USDC (this field doesn't exist in Notion yet, usually $500 USDC)
+  - QA report awards: $12,000 USDC 
+  - Gas report awards: $6,000 USDC 
+  - Judge + presort awards: $24,000 USDC 
+  - Scout awards: $750 USDC 
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2023-02-ethos-reserve-contest/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
