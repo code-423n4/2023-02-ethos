@@ -20,6 +20,8 @@ If you're looking for a head start, we recommend that you compare Ethos-Core's s
 
 # Overview
 
+You can find a video walkthrough of the repository [here](https://www.loom.com/share/dc3f31b93aae412697eb105724a8d327).
+
 An overview of the codebase can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/).  
 A relatively simple explanation of the system can be found [here](https://medium.com/byte-masons/introducing-ethos-reserve-5f08fa6af52a).  
 You can find definitions for all the terms used in the system [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/glossary).  
