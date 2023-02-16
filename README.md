@@ -16,6 +16,8 @@
 Automated findings output for the Ethos-Core package can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/slither-output-ethos-core).  
 Automated findings output for the Ethos-Vault package can be found [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/slither-output-ethos-vault).
 
+Automated findings output for the contest can be found [here](https://gist.github.com/Picodes/deafcaead63bb0d725e4e0c125aa10ae) within an hour of contest opening.
+
 If you're looking for a head start, we recommend that you compare Ethos-Core's slither output above to Liquity's [here](https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/slither-output-liquity).
 
 # Overview
