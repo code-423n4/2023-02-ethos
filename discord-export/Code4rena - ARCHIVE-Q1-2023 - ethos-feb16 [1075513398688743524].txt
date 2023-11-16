@@ -1,0 +1,3036 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q1-2023 / ethos-feb16
+==============================================================
+
+[02/16/2023 00:23] kartoonjoy (pinned)
+👋 Hello and welcome to the contest channel for the $144,750 USDC**Ethos Reserve** contest!
+
+📆 Contest opens 02/16/2023 20:00 (20:00 UTC) and runs through 03/07/2023 20:00 (20:00 UTC) (19 days).
+
+Please give a warm welcome to the Ethos Reserve team, particularly @uint256inc, @Justin Bebis, and @Zokunei, who will be available for questions either here in the channel or via DM.
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this contest, consider enabling notifications for this channel. 🐺 ⏰
+
+Contest Page: https://code4rena.com/contests/2023-02-ethos-reserve-contest
+
+{Embed}
+https://code4rena.com/contests/2023-02-ethos-reserve-contest
+Code4rena Ethos Reserve contest
+$144,750 USDC
+16 February 2023—7 March 2023
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/C4-banner-7C19B.png
+
+{Reactions}
+ysohappy (33) oatho (8) oatha (6) oatht (5) oathh (6) applecat (5) cat (5) topofthemorning (4) praisethesun (4) 🚀 (9) chefskiss (2) hearteyesshark (2) thisisfine (2) ethereumcolor (2) 👑 (2) 
+
+[02/16/2023 20:02] woolliedev
+hey
+
+
+[02/16/2023 20:03] woolliedev
+where did you guys begin with hacking?
+
+
+[02/16/2023 20:03] woolliedev
+lol
+
+
+[02/16/2023 20:04] 0xbebis (pinned)
+Hey everyone! Please let me know if you have any questions. I wish you all the best of luck.
+
+I'd recommend getting started by watching the video walkthrough https://www.loom.com/share/dc3f31b93aae412697eb105724a8d327
+
+{Embed}
+https://www.loom.com/share/dc3f31b93aae412697eb105724a8d327
+code-423n4/2023-02-ethos - 15 February 2023
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/dc3f31b93aae412697eb105724a8d327-00001-D2ADA.gif
+
+{Reactions}
+hi5 (15) 🚀 (9) 🫡 (3) 🔥 (2) 
+
+[02/16/2023 20:04] kartoonjoy
+Pinned a message.
+
+
+[02/16/2023 20:04] kartoonjoy
+Pinned a message.
+
+
+[02/16/2023 20:09] trustminimised
+So is this project intended for ETH mainnet? Or an L2?
+
+
+[02/16/2023 20:09] 0xarmedgoose
+hey! there are some slither outputs labeled as "publicly known issues". Are they all automatically out of scope, or if anything from that slither list can be escalated to certain issue which impact can be demonstrated, then it is valid?
+
+
+[02/16/2023 20:10] 0xbebis
+Optimism L2
+
+{Reactions}
+✅ (3) 
+
+[02/16/2023 20:11] 0xbebis
+if your argument results in an implementation change i'd say it's valid, what do you think @uint256inc
+
+{Reactions}
+✅ 
+
+[02/16/2023 20:12] escrow1337
+there is no issue with adding foundry to the project and using foundry in the event of a PoC right?
+
+
+[02/16/2023 20:13] 0xbebis
+none at all, do whatever you need to
+
+{Reactions}
+✅ (6) 
+
+[02/16/2023 20:14] kchmielewski.eth
+Do you have some user documentation or a whitepaper? I mean, anything else from the things provided strictly for bounty hunters.
+
+
+[02/16/2023 20:16] 0xbebis
+only what's provided, we recommend you look at Liquity documentation
+
+{Reactions}
+✅ (2) 
+
+[02/16/2023 20:16] kchmielewski.eth
+Cool, thanks!
+
+
+[02/16/2023 20:16] 0xbebis
+:ysalute:
+
+
+[02/16/2023 20:17] adriro
+@Justin Bebis is this version of the code already audited? (I mean your mods not liquity)
+
+
+[02/16/2023 20:17] 0xbebis
+audited by Certik but we caught a lot of majors and criticals post-audit
+
+{Reactions}
+✅ 👀 (6) 
+
+[02/16/2023 20:18] 0xbebis (pinned)
+here's the audit report from Certik
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/Ethos_Audit_Report-2B885.pdf
+
+{Reactions}
+👍 (4) 
+
+[02/16/2023 20:19] 0xbebis
+if you wouldn't mind pinning @kartoonjoy
+
+
+[02/16/2023 20:19] kartoonjoy
+Pinned a message.
+
+
+[02/16/2023 20:19] 0xbebis
+i guess i should mention those findings aren't eligible for bounties
+
+
+[02/16/2023 20:24] tess3rac7
+I'm not too sure, I would consider it on a case by case basis. There's a lot of lines within the Liquity codebase that we haven't touched/edited that already have notes on it saying "Slither compains xyz but we did it this way because of abc..."
+
+{Reactions}
+✅ (4) 
+
+[02/16/2023 20:27] tess3rac7
+i would pay most attention to the changes we've made (multi-collateral, active pool rehypothecation, community issuance redo, introduction of some mutability).
+
+{Reactions}
+✅ (4) 
+
+[02/16/2023 20:28] tess3rac7
+especially we've modified the system to work with any erc20 collateral with any arbitrary number of decimals, so non-18 decimal collaterals (such as WBTC) would also be a good hunting ground
+
+{Reactions}
+✅ (3) 
+
+[02/16/2023 20:28] thepicodes (pinned)
+**Automated Findings: **https://gist.github.com/Picodes/deafcaead63bb0d725e4e0c125aa10ae
+
+
+[02/16/2023 20:36] itsmetechjay (pinned)
+Wardens, please note that the automated findings output is posted below. These are considered publicly known issues and are not eligible for awards.
+
+**Automated findings: **
+https://gist.github.com/Picodes/deafcaead63bb0d725e4e0c125aa10ae
+
+{Embed}
+https://gist.github.com/Picodes/deafcaead63bb0d725e4e0c125aa10ae
+4naly3er-2023-02-ethos.md
+GitHub Gist: instantly share code, notes, and snippets.
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/gist-og-image-17482.png
+
+
+[02/16/2023 20:37] itsmetechjay
+Pinned a message.
+
+
+[02/16/2023 20:37] itsmetechjay
+Pinned a message.
+
+
+[02/16/2023 22:44] aba1842
+good luck to us all!
+
+{Reactions}
+hi5 (8) 
+
+[02/16/2023 23:28] ultrarayss
+Under known issues: 
+`There is a loss of precision in line 112 of CommunityIssuance.sol. Though we consider this out of the contest's scope, we are open to field arguments for implementation changes under the QA bucket of rewards.`
+
+I have an implementation which appears to address this issue. What should I do?
+
+
+[02/16/2023 23:42] 0xbebis
+if it's not just calling balanceOf and then adding it to the funding amount then you can go through typical channels
+
+
+[02/16/2023 23:42] 0xbebis
+implementation change i think would require better internal accounting as opposed to scooping up the balance of address(this)
+
+
+[02/17/2023 00:08] ultrarayss
+Cool, it's not that
+
+{Reactions}
+🔥 
+
+[02/17/2023 00:34] sunsec
+GM
+
+
+[02/17/2023 01:01] 0xbebis
+beast mode
+
+
+[02/17/2023 01:01] 0xbebis
+GM!
+
+
+[02/17/2023 03:31] gjaldon
+What is *rehypothecation*?
+
+
+[02/17/2023 04:12] tess3rac7
+loaning out assets.. sort of what banks do with the assets on their balance sheet
+
+{Reactions}
+👍 
+
+[02/17/2023 04:13] tess3rac7
+it basically means that we don't just keep idle collateral sitting in our system; we try to loan it out to another system (the vault) to make more money using that capital. The vault takes a small fee (from the rewards, NOT from the principal), and we have the flexibility to take out the principal and any accrued rewards (minus fee) per our discretion.
+
+{Reactions}
+👍 
+
+[02/17/2023 04:14] tess3rac7
+this obviously introduces additional smart contract risk (vault + strategy + the protocol that the vault is using to generate yield), as well as additional accounting risk (the interaction/rebalancing of capital between ActivePool contract and the vault)
+
+{Reactions}
+🙏 
+
+[02/17/2023 06:52] user137#9935
+GM all and good findings 😄
+
+{Reactions}
+👋 (2) 
+
+[02/17/2023 08:04] zouvier
+so this code we're auditing already has the changes mentioned by Certik and the Major and criticals that your team found post audit, correct?
+
+
+[02/17/2023 08:04] ahmet5611
+Video quality is so bad, anybody got the same problem?
+
+{Reactions}
+🤚 
+
+[02/17/2023 08:17] zouvier
+I think it's your connection. It's clear for me
+
+
+[02/17/2023 08:17] ahmet5611
+Hmm, okay thank you
+
+
+[02/17/2023 08:36] Amithuddar#9571
+"A link to the live version of Ethos Reserve will be provided on Discord during the contest" where is this link?
+
+
+[02/17/2023 09:37] brevist
+Same here, the text is Illegible.
+
+
+[02/17/2023 10:11] dontonka
+GM, I would assume so, but a confirmation from the team would be appreciated on this topic.
+
+
+[02/17/2023 10:15] dontonka
+I was wondering about that, as an user/investor of the system, your documentation say low risk strategies, but how can we know what you will be using to generated yield in the rehypothecation? For ETH, I would assume its the safest and cleaned as one strategy would be to stake it through rocketpool or you own validators, but that would generate 3-4% pure yield at most. I'm seeing a lot of your yield above that, I assume its because there are some subsidization of $ERN in the system too (issuance) ? I would be curious what it would be for BTC for example. Also if those stategies are in the code base (like to witch protocol you use etc)?
+
+
+[02/17/2023 10:37] matin6517
+Hello dear friends,
+I was wondering if someone could help me understand the difference between MCR and CCR in CDP-backed stablecoins.
+As far as I know, should the MCR be higher than CCR or vice versa?🤔
+
+
+[02/17/2023 10:50] sathish9098kumar
+is there any problem in this command ? When i try to run specific test it throws error .
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/image-00028.png
+
+
+[02/17/2023 11:43] dontonka
+you need to add the `.only` to the test source file , see screenshot
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/image-01D99.png
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/image-75D58.png
+
+{Reactions}
+👍 
+
+[02/17/2023 11:45] sathish9098kumar
+okay 👍
+
+
+[02/17/2023 11:47] sathish9098kumar
+No problem in command right ?
+
+
+[02/17/2023 11:48] sathish9098kumar
+Still not working
+
+
+[02/17/2023 12:05] dontonka
+what's your command exactly?
+
+
+[02/17/2023 12:16] sathish9098kumar
+npx hardhat test it.only("updateStakeAndTotalStakes(): reverts when called by an account that is not BorrowerOperations")  
+
+npx hardhat test ./test/AccessControlTest.js it.only("updateStakeAndTotalStakes(): reverts when called by an account that is not BorrowerOperations")
+
+i tried both this commands
+
+
+[02/17/2023 12:18] rnemes
+just 'npx hardhat test'   after adding it.only to the spec file
+
+
+[02/17/2023 12:29] sathish9098kumar
+thank you now its working
+
+
+[02/17/2023 13:08] dontonka
+Oh we can only submit certain type of issue once 🤔  ? @Jay | C4 @kartoonjoy ? I have submitted an issue for QA, tried another time and showed me this .. sorry its my first contest, i will have more to submit, would it be possible for you to reset my first QA submission so i start fresh?
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/image-6CF9A.png
+
+
+[02/17/2023 13:16] kartoonjoy
+Each warden can have only one QA and / or  Gas report per contest. So you'll need to consolidate all related findings under either report. To help you do this, you actually have the ability to edit your findings.
+
+{Reactions}
+✅ (3) 
+
+[02/17/2023 13:18] dontonka
+@Justin Bebis  the audit report include this link to compare 2 commits, but that links bring to the good old 404 friend.. i tried to manually find those 2 commits on the official liquity repo, no luck, can you help out here? https://github.com/Byte-Masons/liquity-dev/compare/1029e4fb0e5b22248874c6ef229ae6bc12e2371f...e47f8f2a5f8e60e1b04339511f90f8481ab26995
+
+
+[02/17/2023 13:44] tess3rac7
+GM all, will be getting to my desk in ~30 minutes to answer some questions
+
+{Reactions}
+👍 
+
+[02/17/2023 13:51] ahmet5611
+Go to contest page -> findings -> edit your existing one
+
+{Reactions}
+thankyou (2) 
+
+[02/17/2023 14:18] tess3rac7
+yes; everything in the certik report has been either addressed through an implementation change, or acknowledged along with an explanation as to why a fix is infeasible/or why we made a partial fix.
+
+{Reactions}
+👍 
+
+[02/17/2023 14:21] tess3rac7
+should be coming soon cc @Justin Bebis
+
+
+[02/17/2023 14:25] tess3rac7
+inside the repo, the Ethos-Vault directory has the exact strategy that is live. You can also look at the live Vault code at the links mentioned here https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts-in-scope/reapervaultv2 and navigate to their strategies.
+
+The strategies are currently supplying to Granary, which is a lending/borrowing protocol also owned and operated by the Byte Masons.
+
+{Embed}
+https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/contracts-in-scope/reapervaultv2
+ReaperVaultV2
+
+{Reactions}
+👍 (2) 
+
+[02/17/2023 14:28] tess3rac7
+MCR (minimum collateralization ratio) is minimum CR at which you're allowed to open a trove while the system is in normal mode. Normal mode means that the total CR (across the whole market) is over the CCR (critical collateralization ratio).
+
+So for example, for the WBTC market, MCR is 120% and CCR is 150%. What this means is that as long as the total CR of the WBTC market is at least 150%, individual troves can fall as low as 120% and not be liquidated. But if the total CR of the market falls below 150%, recovery mode kicks in, and then there's special operations that are allowed (liquidating troves up to `debt * MCR`) on troves that sit between MCR and CCR. Basically, recovery mode turns on "strict mode" so that the system can push itself out of recovery mode as soon as possible.
+
+{Reactions}
+👍 (4) 
+
+[02/17/2023 14:28] tess3rac7
+More info here https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/liquidation-logic
+
+{Embed}
+https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/liquidation-logic
+Liquidation Logic
+Liquidation of collateral happens differently in different contexts. Read more about it here.
+
+
+[02/17/2023 14:31] matin6517
+Oh I got it. Thanks for explanation 🙏
+
+{Reactions}
+👍 
+
+[02/17/2023 14:34] tess3rac7
+Those repos aren't public yet but they're also a bit outdated. We've made more changes since we completed the certik audit and the contest repo has the latest codebase. However, I can provide you with a summary of the changes between those two commits:
+- Adds `pauseMinting()` `unpauseMinting()` `updateGovernance()` `updateGuardian()` and `upgradeProtocol()` to LUSDToken.sol
+- Addresses EIP-2612 signature malleability by adding a check for the valid range of `s` at the beginning of `permit()` function inside LUSDToken.sol
+- Adds some more events as well as messages to require statements
+- Adds `updateCollateralRatios` function to CollateralConfig.sol 
+
+Hopefully that's good enough for you, let me know if you have more questions 🙏
+
+{Reactions}
+👍 (2) 
+
+[02/17/2023 14:41] sunsec
+Sorry, where  we can edit finding if we submitted?
+
+
+[02/17/2023 14:47] kartoonjoy
+https://discord.com/channels/810916927919620096/1075513398688743524/1076138800859840572
+
+{Reactions}
+👍 
+
+[02/17/2023 14:53] un_for_given
+Is there any docs that describe protocol from user perspective?
+
+
+[02/17/2023 14:56] tess3rac7
+Best thing I can recommend would be to read through Liquity's README, specifically the first few sections: https://github.com/liquity/dev#liquity-overview
+
+{Embed}
+https://github.com/liquity/dev
+GitHub - liquity/dev: Liquity monorepo containing the contracts, SD...
+Liquity monorepo containing the contracts, SDK and Dev UI frontend. - GitHub - liquity/dev: Liquity monorepo containing the contracts, SDK and Dev UI frontend.
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/dev-30287
+
+
+[02/17/2023 14:57] tess3rac7
+Once you're familiar with their descriptions of the user experience, you can jump into our own gitbook to familiarize yourself with the changes we've made on top
+
+
+[02/17/2023 14:58] un_for_given
+Thanks
+
+
+[02/17/2023 15:25] 0xbebis
+we fixed most of the real issues we found
+
+
+[02/17/2023 15:27] 0xbebis
+frontend might not be up and running for you until later today
+
+
+[02/17/2023 16:17] co0nan
+Is there a starting point defined usually or you guys choose a contract randomly and start form there?
+
+
+[02/17/2023 16:32] 0xbebis
+we ordered them in the table from start to end
+
+
+[02/17/2023 16:32] 0xbebis
+begin at collateral config and go from there
+
+
+[02/17/2023 16:33] 0xbebis
+there will be dependencies to investigate along the way if you so choose that aren't included in the table
+
+
+[02/17/2023 16:33] 0xbebis
+but if you go from row 1 down the list your understanding should unfold pretty naturally
+
+{Reactions}
+hi5 (8) 
+
+[02/17/2023 20:36] sovaslava9
+@Justin Bebis send you dm
+
+
+[02/17/2023 20:36] Franfran#5067
+any sponsor down for a dm ?
+
+
+[02/17/2023 20:42] tess3rac7
+sure myself or justin are answering DMs.
+
+{Reactions}
+✅ 
+
+[02/17/2023 23:02] 0xbebis
+I hope everyone has an excellent weekend!
+
+I will be available intermittently throughout, and will try to get the frontend information out as soon as I can.
+
+{Reactions}
+hi5 (9) 🙏 🦾 
+
+[02/18/2023 10:27] 0xtaylor
+Woot, @Trust is a judge instead of a Warden this round so we can cook.
+
+{Reactions}
+😈 (7) 🍻 (2) dancing 😂 (7) 
+
+[02/18/2023 11:01] jayusjay
+Quick question, do liquidators earn a fee for liquidating a trove or only the gas compensation is earned?
+
+
+[02/18/2023 11:20] 0xtaylor
+Maybe this will help you https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/liquidation-logic
+
+{Embed}
+https://docs.reaper.farm/ethos-reserve-bounty-hunter-documentation/useful-information/liquidation-logic
+Liquidation Logic
+Liquidation of collateral happens differently in different contexts. Read more about it here.
+
+{Reactions}
+👍 
+
+[02/18/2023 13:24] apvlki
+hi guys, just wanted to check if the ownable here is meant to be commented out? https://github.com/code-423n4/2023-02-ethos/blob/73687f32b934c9d697b97745356cdf8a1f264955/Ethos-Core/contracts/TroveManager.sol#L18 
+
+
+also, why did you guys removed it? thanks!
+
+{Embed}
+https://github.com/code-423n4/2023-02-ethos/blob/73687f32b934c9d697b97745356cdf8a1f264955/Ethos-Core/contracts/TroveManager.sol
+2023-02-ethos/TroveManager.sol at 73687f32b934c9d697b97745356cdf8a1...
+Contribute to code-423n4/2023-02-ethos development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/ff3fa3f8-9c74-450e-9309-0c1d315e2339-53152
+
+
+[02/18/2023 13:32] pfapostol
+You can find a comment about this below in the code.
+
+
+[02/18/2023 13:33] janio2023
+as far as I understood it is. They will probably spare gas by not inheriting Ownable anymore. And ownership would be necessary only until setting the addresses (only to call setAddress once)
+
+
+[02/18/2023 13:35] pfapostol
+I think it's not about saving gas, but about bypassing solidity errors.
+
+
+[02/18/2023 13:36] janio2023
+Yes, I see now.
+
+
+[02/18/2023 13:45] apvlki
+ah got it. its about the contract size limit. thanks @pfapostol  @Janio :hi5:
+
+
+[02/18/2023 13:48] peakbolt
+@Justin Bebis @uint256inc do we know what are the collaterals types likely to be used? other than WBTC and WETH? understand this is not final.
+
+
+[02/18/2023 14:54] dontonka
+look at lusdtoken contract.. collateral can be added overtime. so far on OP they deployed wBTC and OP token.
+
+
+[02/18/2023 14:58] peakbolt
+hmm can i clarify why look at lusdtoken contract?
+my impression so far is the collateral types will be immutable..
+
+
+[02/18/2023 15:05] dontonka
+oh sorry maybe it was CollareralConfig, sorry im not in front of my machine.
+
+
+[02/18/2023 15:15] tess3rac7
+yes, gas compensation + 0.5% of the collateral being liquidated https://github.com/code-423n4/2023-02-ethos/blob/73687f32b934c9d697b97745356cdf8a1f264955/Ethos-Core/contracts/Dependencies/LiquityBase.sol#L50
+
+{Embed}
+https://github.com/code-423n4/2023-02-ethos/blob/73687f32b934c9d697b97745356cdf8a1f264955/Ethos-Core/contracts/Dependencies/LiquityBase.sol
+2023-02-ethos/LiquityBase.sol at 73687f32b934c9d697b97745356cdf8a1f...
+Contribute to code-423n4/2023-02-ethos development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/ff3fa3f8-9c74-450e-9309-0c1d315e2339-53152
+
+
+[02/18/2023 15:16] tess3rac7
+we removed it because TroveManager repeatedly gave us contract size issues. The only use for ownable was to be able to setAddresses and renounce ownership right away, so we just decided to use our own simple `owner` variable to save on contract size.
+
+{Reactions}
+chefskiss 
+
+[02/18/2023 15:17] jayusjay
+Thanks
+
+
+[02/18/2023 15:18] tess3rac7
+Mostly WBTC and WETH with perhaps an additional token (for example the chain's token).
+
+
+[02/18/2023 15:20] tess3rac7
+this is correct; collateral types are immutable once initialized. The only mutability is that a collateral's MCR and CCR can be walked down (only down, not up), as seen in the `CollateralConfig` contract. 
+
+there is another path whereby the whole protocol can be upgraded to a new version (see `upgradeProtocol()` inside LUSDToken), which would allow us to establish a new system and reinitialize it with new collaterals (and reuse the same instance of LUSDToken)
+
+
+[02/18/2023 15:21] peakbolt
+Cool, thanks for the clarification!
+
+
+[02/18/2023 15:25] remaerd369
+Yay prep done, time for fuzzing
+
+{Reactions}
+👍 
+
+[02/18/2023 16:29] dontonka
+@uint256inc can you explain what is the use case for LUSDToken.approve VS LUSDToken.permit and where both are used in the system in tipical cases?
+
+
+[02/18/2023 16:39] doublesharp
+`approve` is for authorizing contracts to spend your tokens, `permit` uses an offchain signature to create the approval.
+
+{Reactions}
+✅ (3) 
+
+[02/18/2023 17:00] tess3rac7
+Exactly what doublesharp said.. I'm not 100% sure about the creation of permit/eip2612 but I think it was to make transacting overall cheaper since you don't need a TX to approve
+
+{Reactions}
+👍 
+
+[02/18/2023 17:30] 0xsurena
+what is governanceAddress in LUSDToken.sol ?
+
+
+[02/18/2023 17:34] doublesharp
+Yeah this way someone else can submit the transaction on behalf of the person who signed (and pay the gas for them) and/or submit them in batches.
+
+
+[02/18/2023 17:37] apvlki
+thanks @uint256inc !
+
+
+[02/18/2023 17:43] bitcoinfever244
+Can someone explain what's the purpose of the OATH token ? I'm not understanding it purpose.
+
+
+[02/18/2023 17:55] 0xbebis
+Oath is converted to an 80/20 balancer pool token and staked to earn fees from the platform. This ensures that there is always liquidity to trade from the farmed assets to $OATH, which is then sent to CommunityIssuance to reward stability pool depositors.
+
+
+[02/18/2023 17:55] 0xbebis
+the idea here is instead of minting Oath for incentives, it's rebought using yield generated by the platform then distributed
+
+
+[02/18/2023 17:56] bitcoinfever244
+Okay, thanks
+
+
+[02/18/2023 17:56] 0xbebis
+no problem
+
+
+[02/18/2023 17:56] 0xbebis
+that's basically the super admin, it's a multisig at the moment
+
+{Reactions}
+👍 
+
+[02/18/2023 20:15] ali_shehab.
+Hi @Justin Bebis may I dm? I send fr
+
+
+[02/18/2023 20:52] 0xtaylor
+Kinda surprised `PriceFeed.sol` isn't in scope. Seems like that would be a juicy target for attack
+
+{Reactions}
+✅ 😲 
+
+[02/18/2023 20:52] 0xtaylor
+Oracles have historically been a soft spot for protocols
+
+
+[02/18/2023 23:38] tess3rac7
+Good point. Justin and I had a lot of difficulty narrowing the scope because once we started including all the contracts there was no end and it just kept getting bigger and bigger. 
+
+Ultimately we decided to focus first and foremost on the contracts we heavily edited compared to the original LQTY codebase, and that didn't have as numerous and extensive unit tests as the rest of the codebase.
+
+PriceFeed has many, many unit tests covering the logic extensively AND we haven't changed any of the actual oracle logic compared to the Liquity codebase. We've just added the ability to upgrade the oracle addresses should we ever need to, and used newer Tellor schematics with 18 digit precision and time delay.
+
+That being said, if a bounty hunter found something in PriceFeed that exposed a vulnerability we would most definitely consider it. Hope this is a somewhat satisfactory answer 🙂
+
+{Reactions}
+👍 (8) 
+
+[02/19/2023 00:17] sunsec
+Curious if issue will  impact contract that in scope but the root cause happen in contract that in out-scope. Is it an eligible bug?
+
+
+[02/19/2023 01:08] zokunei
+yes, it is eligible if it necessitates an implementation change on our end
+
+{Reactions}
+👍 
+
+[02/19/2023 03:12] gjaldon
+what sorts of depositors will be allowed to use the Reaper Vaults?
+
+
+[02/19/2023 03:37] zokunei
+I believe the intention is to give the depositor role to just the ActivePool
+
+{Reactions}
+🙏 
+
+[02/19/2023 05:37] tess3rac7
+This is correct and already in effect
+
+{Reactions}
+👍 
+
+[02/19/2023 09:46] 0xtaylor
+Y'all should offer a bounty for rewriting your tests in Solidity
+
+
+[02/19/2023 09:46] 0xtaylor
+Just sayin'
+
+{Reactions}
+PepeHmmm 
+
+[02/19/2023 09:47] 0xtaylor
+Friends don't let friends write JS tests anymore
+
+{Reactions}
+😂 (12) chefskiss 
+
+[02/19/2023 12:00] co0nan
+To confirm, no one should be able to openTrove or update it? Only the borrowoperationsaddress?
+
+
+[02/19/2023 13:42] josephdara
+I'd rewrite it all in foundry for some grands
+
+
+[02/19/2023 13:58] pfapostol
+I  rewrite every hardhat contest I participate in. Just because javacript really irritates me.
+
+{Reactions}
+😂 
+
+[02/19/2023 14:26] .whilom
+What's the purpose of the Default pool and ColSurpluspool. Can't seem to understand them
+
+
+[02/19/2023 14:26] .whilom
+I know they're out of scope but I'm trying to trace funds flow and am lost
+
+
+[02/19/2023 14:52] ali_shehab.
+Hi @uint256inc may I dm?
+
+
+[02/19/2023 15:28] tess3rac7
+correct, only `borrowerOperations` is authorized to allow trove opening/adjustment operations. It's the single interface in the system designed for borrowers.
+
+
+[02/19/2023 15:32] 0xjuntao
+I dont understancd, but openTrove and adjustTrove are external functions, everyone is able to call
+
+
+[02/19/2023 15:34] tess3rac7
+Might be a good starting point to understand how the system stores the aggregated collateral for each market: https://github.com/liquity/dev#flow-of-ether-in-liquity
+
+ActivePool: stores collateral from all the active troves
+DefaultPool: stores collateral (temporarily) that was received from a liquidation--a liquidation when there wasn't enough ERN in the stability pool, so the liquidation happened via redistribution https://github.com/liquity/dev#redistributions-and-corrected-stakes
+CollSurplusPool: stores collaterals from troves that were either redeemed against or troves that were liquidated with ICR > MCR in recovery mode. This is excess collateral that is claimable later by the borrower.
+
+another good way to think about it:
+ActivePool - active (good standing troves) collateral
+DefaultPool - defaulters (bad debt) collateral that couldn't be immediately wiped with ERN
+CollSurplusPool - redeemable collateral for borrowers that weren't quite in bad standing but other forces in the system caused their trove to close, so we let them have their excess collateral back
+
+{Embed}
+https://github.com/liquity/dev
+GitHub - liquity/dev: Liquity monorepo containing the contracts, SD...
+Liquity monorepo containing the contracts, SDK and Dev UI frontend. - GitHub - liquity/dev: Liquity monorepo containing the contracts, SDK and Dev UI frontend.
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/dev-1A6A9
+
+{Reactions}
+🙌🏾 (2) 
+
+[02/19/2023 15:34] tess3rac7
+yes sir fire away
+
+
+[02/19/2023 15:35] tess3rac7
+ah maybe I misunderstood the original question but what I was trying to say is that the only way for a borrower to open a trove or adjust an existing trove is through BorrowerOperations.
+
+
+[02/19/2023 15:36] 0xjuntao
+yeah if otherwise might be a critical issue😬
+
+
+[02/19/2023 17:52] 0xsurena
+who is role DEPOSITOR ?
+
+
+[02/19/2023 17:58] tess3rac7
+ActivePool
+
+{Reactions}
+👍 
+
+[02/20/2023 07:12] supernovahs
+🙌
+
+{Reactions}
+👀 
+
+[02/20/2023 12:12] 0xmirce
+Why is the `RedemptionHelper` contract not in scope?
+
+
+[02/20/2023 12:40] gjaldon
+What is the Granary Strategy's underlying token?
+
+
+[02/20/2023 14:36] Bjorn_Bug#3314
+Granary.finance is a DeFi protocol
+
+
+[02/20/2023 14:51] Bjorn_Bug#3314
+@uint256inc Can you check your DM
+
+
+[02/20/2023 15:02] tess3rac7
+Please see this message: https://discord.com/channels/810916927919620096/1075513398688743524/1076648988637405214
+
+`RedemptionHelper` has all the code related to redemptions only. In the original Liquity codebase, this code is found inside `TroveManager`, however, due to contract size issues, we cut-pasted that code into a new file (`RedemptionHelper`), and made the `redeemCollateral()` pass through to it. As such, we have not edited the redemption code and there are many, many unit tests covering that functionality.
+
+But as before, if you find something in there that necessitates an implementation change let's talk 🙂
+
+{Reactions}
+👍 
+
+[02/20/2023 15:03] tess3rac7
+it will be whatever token is being deposited into it.. so WBTC or WETH
+
+{Reactions}
+👍 
+
+[02/20/2023 16:05] Rvi#5470
+who will have `DEPOSITOR` role in the vault?
+
+
+[02/20/2023 16:17] tess3rac7
+https://discord.com/channels/810916927919620096/1075513398688743524/1076925670682280017
+
+
+[02/20/2023 16:33] Rvi#5470
+mb should've searched before
+
+
+[02/20/2023 17:36] havewemeetbefore
+Can anyone explain this to me in a layman language? Please
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/IMG_20230220_164748_053-54412.jpg
+
+
+[02/20/2023 17:46] zokunei
+looks like you need a .env file
+
+
+[02/20/2023 17:47] zokunei
+copying the example file to .env should work
+
+
+[02/20/2023 18:45] 0xbebis
+yeah we have a .env.example file you can just remove the .example
+
+
+[02/20/2023 18:45] 0xbebis
+it has dummy data in it
+
+
+[02/20/2023 18:46] 0xbebis
+or add dummy keys to the hardhat config file
+
+
+[02/20/2023 18:47] havewemeetbefore
+i have a copy of .env i think I will change my device, i run the code successfully on my windows OS, but  the above error comes from a ZIION    OS
+
+
+[02/20/2023 23:22] Rvi#5470
+thats because .env is not for windows you can set your environment variables like this:
+`setx DEPLOYER_PRIVATE_KEY "abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1"`
+`setx FTMSCAN_API_KEY "ABC123ABC123ABC123ABC123ABC123ABC1"`
+or do it manually
+
+
+[02/20/2023 23:41] dragonmaster009#7968
+im on windows and am able to npm install, require, and use dotenv
+
+{Reactions}
+🤨 
+
+[02/21/2023 01:55] 0xbebis (pinned)
+hey auditors! Pretty bare bones at the moment as we're polishing the CSS, but here is a front-end you can use to interact with Ethos Reserve on Optimism Mainnet. All assets are 100% real here, but we will be deprecating this version of the system after the contest is over, so don't go overboard :KEKW: 
+
+https://master.d2d2stxuuhsjdw.amplifyapp.com/dashboard
+
+1. Use only small sums - the $ERN minted here is worthless
+2. This deployment should be considered exploitable until the contest is over
+3. Try to break everything you can!
+4. The front-end is not eligible for any bounties - it's still a work in progress
+
+@kartoonjoy
+
+{Reactions}
+thankyou (6) 🙏 (4) ✅ (2) 
+
+[02/21/2023 01:56] kartoonjoy
+Pinned a message.
+
+
+[02/21/2023 03:00] patrickalphac
+gm frens. I'm a little late, but excited to be here!
+
+{Reactions}
+🔥 (15) 👋🏻 (4) 👍 (3) 
+
+[02/21/2023 05:45] user137#9935
+gm patrick, nice to see you here ! your interview with andy ly was so cool, thx for that ^^
+
+{Reactions}
+hi5 
+
+[02/21/2023 05:50] user137#9935
+sorry if stupid question but where are the credentials for this front-end ?
+
+
+[02/21/2023 06:05] matin6517
+When the happiness of fading out of Trust in contests was not over, then Patrick came in😂 lol
+
+{Reactions}
+😅 
+
+[02/21/2023 06:24] zouvier
+looks like we need a login for the site?
+
+
+[02/21/2023 06:26] zouvier
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/https___master.d2d2stxuuhsjdw.amplifyapp.c-1BA4A.png
+
+
+[02/21/2023 06:28] zokunei (pinned)
+username: C4AChad
+password: bytemasonsrule123
+
+{Reactions}
+💯 (2) 
+
+[02/21/2023 06:28] zouvier
+ty ty
+
+{Reactions}
+ysalute 
+
+[02/21/2023 06:29] zouvier
+can we pin this?
+
+
+[02/21/2023 07:22] remaerd369
+GM
+
+
+[02/21/2023 07:29] remaerd369
+Can I dm I have a question
+
+
+[02/21/2023 08:23] Ada#1029
+Hi I am investing Vault contracts. May I ask what does `freeWantInStrat` (in  ReaperVaultV2) mean. Is there any connection between  `freeWantInStrat` and  `wantBalance`(in ReaperStrategyGranarySupplyOnly)?
+
+
+[02/21/2023 12:26] patrickalphac
+It's anyone's contest friend!
+
+{Reactions}
+👀 😂 (5) ❤️ 🚀 
+
+[02/21/2023 12:45] matin6517
+Just kidding.
+I'm proud to participate in a contest that you are in. Going to learn a lot from you🙏
+
+{Reactions}
+🙌 (3) 
+
+[02/21/2023 13:08] janestebans
+Hi, when checking the ReaperVaultV2 contract, the description says "A EIP4626-compitable vault that can operate multiple yield-generating strategies at the same time. The ActivePool contract will integrate with one instance of ReaperVaultV2 per collateral as a means of generating passive yield on otherwise dormant assets within the system." When it says instance per collateral, does it mean one instance per collateral type, or literally one instance per collateral placed by user?
+
+
+[02/21/2023 14:02] 0xpathfindr
+@Justin Bebis Please share official links for the project if any, twitter, discord website, medium etc etc
+
+
+[02/21/2023 14:42] makeouthill6
+Any sponsors available for DM?
+
+
+[02/21/2023 14:45] tess3rac7
+Yes of course
+
+{Reactions}
+🦾 
+
+[02/21/2023 14:49] tess3rac7
+One the core principles of the vault/strategy architecture is to have suspicion between the vault and the strategy. What I mean by this is that the vault doesn't just take the strategy's word for "this is how much money I have." The vault instead behaves like a loan shark and keeps its own internal accounting of the amount of money lent to the strategy. 
+
+It's only in the `report` function that the vault trusts the strategy minimally, by taking the strategy's word for `roi` and `repayment`. The sum of these two *should* at least equal want balance within the strategy, but the vault would rather just trust the arguments it was invoked with.
+
+You can sort of see this here in the yearn vault code, which is what we adapted to build our own vaults: https://github.com/yearn/yearn-vaults/blob/master/contracts/Vault.vy#L1729
+
+{Embed}
+https://github.com/yearn/yearn-vaults/blob/master/contracts/Vault.vy
+yearn-vaults/Vault.vy at master · yearn/yearn-vaults
+Yearn Vault smart contracts. Contribute to yearn/yearn-vaults development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/yearn-vaults-41299
+
+
+[02/21/2023 14:50] tess3rac7
+One instance per collateral type. There are two vaults live right now, one for WBTC and one for WETH.
+
+{Reactions}
+👍🏼 
+
+[02/21/2023 14:50] tess3rac7
+yes go for it
+
+
+[02/21/2023 14:51] janestebans
+Understood. Thanks!!
+
+
+[02/21/2023 15:07] 0xbebis
+@kartoonjoy if you could pin
+
+{Reactions}
+checkmark (2) 
+
+[02/21/2023 15:08] itsmetechjay
+Pinned a message.
+
+
+[02/21/2023 15:09] 0xbebis
+https://twitter.com/EthosReserve
+discord.gg/reaperfarm
+medium.com/byte-masons
+
+
+[02/21/2023 15:09] 0xbebis
+will have more websites up this week
+
+
+[02/21/2023 15:37] tess3rac7
+Hey all, just to clarify, the current collaterals of the live system are WETH and WBTC, and these cannot be changed once the system has been initialized. Our final live deployment might have the exact same collaterals, or it may possibly have an additional collateral.
+
+*However, the system is not designed to accept ERC20s that have unusual behaviors such as rebasing or fee on transfer or any other quirks. We're only looking at high quality, large market cap, blue chip collateral.*
+
+Hopefully this clarifies regarding the types of collaterals that the system will work with, so wardens can only focus on those when thinking of attack surfaces.
+
+{Reactions}
+👍 (7) 
+
+[02/21/2023 16:09] dontonka
+Just reporting an improvement todo in the front end.. i just tried that but the tx failed `'BorrowerOperations: Insufficient user collateral balance'` which is expected I have no WETH in my wallet, only ETH, but was not sure i did need to wrap those, now its clear XD. 
+
+But as a user its always annoying to waste GAS when the UI could have prevented me initiate the transaction. So the front-end should only enable the button `Open Position` if also the amount of collateral specific is <= of what the user have in the connected wallet, does that make sense?
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/image-3335B.png
+
+{Reactions}
+🔥 👍 
+
+[02/21/2023 16:13] 0xbebis
+yeah, makes perfect sense, it's on our list of work items at the moment.
+
+i think it probably would have let you click it even if you didn't have ETH either lol - use at your own risk!
+
+Also another thing that you'll find is really annoying is adjusting a position - it has you do a bunch of confusing gymnastics with a modal. Currently refining and enriching the UX on a different branch.
+
+{Reactions}
+👍 (2) 
+
+[02/21/2023 16:13] 0xbebis
+i'll have our fe engineer push some of the QoL stuff though when it's ready just so it's easier to interact with
+
+
+[02/21/2023 16:15] 0xbebis
+thank you very much for the callout though, i'll see if we can bump it up on the prio list
+
+
+[02/21/2023 16:15] dontonka
+no its fine really, no need to prioritize, but def before launching officially
+
+
+[02/21/2023 16:16] 0xbebis
+definitely, our plan is to wrap ETH for you
+
+{Reactions}
+💪 (2) 
+
+[02/21/2023 16:17] dontonka
+btw first timer using OP, what's the reason you guys use wETH and not directly ETH for collateral? i was surprise that on OP, gas fees still works with ETH, not OP.. that makes me even more bullish on ETH.
+
+
+[02/21/2023 16:18] alexxander
+@Justin Bebis  Hello, am I right to understand that the Proxy folder holds the contracts  that are the entry points to the system ?
+
+
+[02/21/2023 16:18] tess3rac7
+it's easier to build common logic to handle all collaterals as erc20s, as opposed to building separate logic for native gas token and separate logic for erc20s
+
+{Reactions}
+✅ 
+
+[02/21/2023 16:19] dontonka
+yes seeing the code, i understand what the impact means, make sense.
+
+
+[02/21/2023 16:19] tess3rac7
+Proxy folder is just convenience contracts used in tests
+
+{Reactions}
+👍 
+
+[02/21/2023 16:20] tess3rac7
+they perform compound operations on behalf of users
+
+
+[02/21/2023 16:20] alexxander
+that was my question, thanks 🙏
+
+
+[02/21/2023 16:32] remaerd369
+Hey @dontonka can I dm you?
+
+
+[02/21/2023 16:58] dec3ntraliz3d
+Is there a explanation of the rebalance mechanism in active pool somewhere ? I was hoping for some example math.
+
+
+[02/21/2023 16:59] hansfriese
+https://github.com/liquity/dev/tree/main/papers
+
+{Embed}
+https://github.com/liquity/dev/tree/main/papers
+dev/papers at main · liquity/dev
+Liquity monorepo containing the contracts, SDK and Dev UI frontend. - dev/papers at main · liquity/dev
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/dev-D03B3
+
+{Reactions}
+👍 
+
+[02/21/2023 17:00] dec3ntraliz3d
+Thanks !
+
+
+[02/21/2023 17:05] tess3rac7
+> rebalance mechanism in active pool somewhere
+assuming you're talking about the asset management rebalancing between active pool and vault, this is net new functionality that we added and as such liquity doesn't have any documentation on it. I think the comments in the function are designed to be easy to follow along, but you can also look at PoolsTest for some examples.
+
+
+[02/21/2023 17:08] dontonka
+sent a friend req
+
+{Reactions}
+👍 
+
+[02/21/2023 17:18] dec3ntraliz3d
+Yeap, thats what I was referring to. Thank you! I think I am gonna go thorough the test to understand the mechanism better.
+
+
+[02/21/2023 22:57] liobrasil
+why no optimism goerli version BTW ? Much more easy to test things ! Moreover these risks for warden's money as contract is considered exploitable...
+
+
+[02/21/2023 23:02] tess3rac7
+We've already had 2 testnet deployments in the past couple months that we've tested internally. Plus it's just not the same when you consider that oracles have much different behavior between mainnet and testnet, as well as getting a real strategy depositing/withdrawing real collateral on Granary is not something we can feasibly test out on testnet.
+
+{Reactions}
+💯 (2) 
+
+[02/21/2023 23:08] liobrasil
+thanks for the explanation
+
+
+[02/21/2023 23:08] tess3rac7
+We've reduced the min amount of debt needed to open a trove to just $10 for this live deployment. If you wish to close your trove to get all your collateral back you will need a few more cents to account for the fees. Just DM justin he can send you that ERN. Alternatively if you get liquidated you could redeem through the TroveManager contract. 🙂
+
+
+[02/21/2023 23:28] 0xbebis
+i am here to bail you out if needed :KEKW:
+
+{Reactions}
+🦾 (2) 👍 
+
+[02/22/2023 01:55] dontonka
+yes i figure i was screwed as cannot swap to ERN or mint (except if i found a way todo it XD). i might need 1-2 ERN to get my wETH back, otherwise will not die for 20$.
+
+
+[02/22/2023 01:56] dontonka
+is there a tool out there to indicate the test coverage of the current testing against the contracts ?
+
+
+[02/22/2023 01:59] tess3rac7
+there is a hardhat plugin in the repo, `solidity-coverage`
+
+
+[02/22/2023 01:59] tess3rac7
+if you browse the available hardhat commands you should see it
+
+{Reactions}
+🫡 
+
+[02/22/2023 01:59] dontonka
+how do i use it?
+
+
+[02/22/2023 02:03] 0xbebis
+i believe npx hardhat coverage
+
+{Reactions}
+✅ 
+
+[02/22/2023 02:11] dontonka
+oh this is nice with the htlm report etc, ty XD
+
+
+[02/22/2023 06:52] supernovahs
+Ser, can you point me to more resources on CommunityIssuance contract . In the docs , there is only 1 paragraph.
+
+
+[02/22/2023 07:09] matin6517
+I have a question about the collateral. The only contract which can update the collateral amount or specifically the collAmount mapping is the activePool.sol contract?
+Other contracts may use that amount but are not allowed to add some uint in that?
+
+
+[02/22/2023 11:31] dontonka
+anyone knows what the following message means from etherscan on a transation : `Fail, with error 'BAL#406'` ?
+
+
+[02/22/2023 12:59] neko_nyaa
+It's a Balancer error code. <https://docs.balancer.fi/reference/contracts/error-codes>
+
+
+[02/22/2023 14:01] dontonka
+gocha, is the balancer a component of the eth network, was not even aware of this 🤔 , so i guess one contract interact indirectly with their contract ?
+
+
+[02/22/2023 14:19] codehunter99
+Can I do the same test on a testnet
+
+
+[02/22/2023 14:40] dontonka
+im not sure, their app would need to be deployed on a testnet or you do it yourself which might not be trivial.. as they mention they did this test on testnet in the past, that's why they wanted to be on mainnet.. if you want to test, its not much, with less then 50$ you can play with it.. (tranfering funds from ETH to OP will cost you 12-15$ in gas if you don't have funds already), on on OP, gas fees as you know are pretty low. and in the end you can get back your funds most likely.
+
+{Reactions}
+💯 
+
+[02/22/2023 15:29] _brolee
+Didn't see this in the glossary, but what does MCR mean in the Liquidation Logic section?
+
+
+[02/22/2023 15:34] tess3rac7
+it accepts OATH funding through the `fund()` and aims to distribute that OATH evenly spread throughout 14 days
+the accounting is updated every time `issueOath()` is called by the stability pool
+Note that the OATH that's "issued" to the stability pool still remains within the community issuance contract until the stability pool instructs it to actually pay out gains to a user
+
+there's not a lot more to document to be honest
+
+{Reactions}
+🦾 👍 
+
+[02/22/2023 15:35] tess3rac7
+For the most part.. there may be instances where BorrowerOps/TroveManager does some manipulation of those amounts as well
+
+
+[02/22/2023 15:38] tess3rac7
+minimum collateral ratio, if you look at the collateralConfig contract, each collateral has an MCR and a CCR. MCR is the minimum below which a trove becomes liquidatable in normal mode
+
+{Reactions}
+👍 
+
+[02/22/2023 15:39] tess3rac7
+so for WBTC, MCR = 120% and CCR = 150%; This means that as long as the total collateralization of the WBTC market is above 150%, you can open an individual trove with CR as low as 120%. But when TCR of the WBTC market falls below 150%, troves above 120% may be liquidated to bring the TCR back above CCR.
+
+{Reactions}
+💯 (3) 
+
+[02/22/2023 15:52] _brolee
+> troves above 120% may be liquidated
+Do you mean below?
+
+
+[02/22/2023 15:55] tess3rac7
+When system enters recovery mode, troves **ABOVE** MCR may be liquidated to bring the TCR of the system back above CCR
+
+
+[02/22/2023 15:55] tess3rac7
+look at the liquidation logic chart in the gitbook
+
+
+[02/22/2023 16:18] _brolee
+Ah okay, I was reading this line from the liquity github: "When a Trove falls below a minimum collateralization ratio (MCR) of 110%, it is considered under-collateralized, and is vulnerable to liquidation."
+
+
+[02/22/2023 17:03] co0nan
+anyone managed to run tests on mac? I'm facing issues regarding different solidity versions
+
+
+[02/22/2023 17:03] co0nan
+```
+Error HH606: The project cannot be compiled, see reasons below.
+
+These files import other files that use a different and incompatible version of Solidity:
+
+  * contracts/TestContracts/ERC4626.sol (0.6.11) imports @openzeppelin/contracts/token/ERC20/ERC20.sol (^0.8.0)
+  * @openzeppelin/contracts/token/ERC20/ERC20.sol (^0.8.0) imports @openzeppelin/contracts/token/ERC20/IERC20.sol (0.6.11), @openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol (0.6.11) and 1 other file. Use --verbose to see the full list.
+  * contracts/TestContracts/ERC20Mock.sol (0.6.11) imports @openzeppelin/contracts/token/ERC20/ERC20.sol (^0.8.0)
+
+To learn more, run the command again with --verbose
+
+Read about compiler configuration at https://hardhat.org/config
+
+
+For more info go to https://hardhat.org/HH606 or run Hardhat with --show-stack-traces
+```
+
+
+[02/22/2023 17:23] tess3rac7
+that hardhat config has multiple solidity versions so it should be able to compile
+
+
+[02/22/2023 17:31] supernovahs
+Mine worked fine
+
+
+[02/22/2023 17:53] cartman42069
+No trouble here.
+
+
+[02/22/2023 19:56] supernovahs
+F_LUSD stands for ? Fees LUSD
+
+
+[02/22/2023 19:56] supernovahs
+?
+
+
+[02/22/2023 19:56] supernovahs
+What does this mean
+ Running sum of LUSD fees per-LQTY-staked
+
+
+[02/22/2023 20:05] tess3rac7
+it's sort of like how masterchefs work.. there is a global running sum. when you deposit you get a snapshot of that global running sum. later your rewards are calculated based on your stake * (current running sum - your snapshot running sum)
+
+
+[02/23/2023 02:08] alexxander
+A question regarding redemption - If I am an user that has an active Trove and some other user redeems their LUSD and it so happens that my Trove is in the redemption Trove series (assuming it’s not last therefore no partial redemption) it would appear as closed?
+
+
+[02/23/2023 02:29] tess3rac7
+Yes and you would see your remaining collateral available for you to claim
+
+
+[02/23/2023 06:23] eyexploit
+Is there any specific reason to increase `MIN_ALLOWED_MCR`. The collaterConfig contract on mainnet has  `1.08e18` and the current one has `1.1e18`
+
+
+[02/23/2023 07:05] PrasadLak#0622
+@uint256inc I DM you. Pls check it.
+
+
+[02/23/2023 07:55] Junnon#3182
+are all contracts upgradeable or not?
+
+
+[02/23/2023 10:22] co0nan
+which contract will be `_lqtyTokenAddress` inside LQTYStaking?  does this will be the address of LQTYToken.sol from `liquity` itself?
+
+
+[02/23/2023 13:12] dontonka
+that's will be for the OATH token, on the mainnet its here `0x39FdE572a18448F8139b7788099F0a0740f51205` you can check the details, the contract name is called `AnyswapV6ERC20`
+
+{Reactions}
+🙏🏼 
+
+[02/23/2023 16:01] 0xbebis
+it will actually be a BPT token
+
+
+[02/23/2023 16:01] 0xbebis
+called bOATH
+
+
+[02/23/2023 16:01] 0xbebis
+https://optimistic.etherscan.io/address/0x99184713bad36bdcbC31453670FBB0D2eC3Cfcc4
+
+{Embed}
+https://optimistic.etherscan.io/address/0x99184713bad36bdcbC31453670FBB0D2eC3Cfcc4
+Contract Address 0x99184713bad36bdcbC31453670FBB0D2eC3Cfcc4 | Optimism
+The Contract Address 0x99184713bad36bdcbC31453670FBB0D2eC3Cfcc4 page allows users to view the source code, transactions, balances, and analytics for the contract address. Users can also interact and make transactions to the contract directly on Optimism.
+
+
+[02/23/2023 16:01] 0xbebis
+this is just a test version
+
+
+[02/23/2023 16:13] dontonka
+what is the diff between  `0x99184713bad36bdcbC31453670FBB0D2eC3Cfcc4` and `0x39FdE572a18448F8139b7788099F0a0740f51205` , the latter being the one used currently on the OP mainnet (correct) ?
+
+
+[02/23/2023 16:28] 0xbebis
+the former is a balancer pool token made on op.beets.fi
+
+
+[02/23/2023 16:28] 0xbebis
+the latter is a normal ERC20 bridged via multichain
+
+
+[02/23/2023 16:31] dontonka
+why not testing the former in the current deployement on OP 🤔 ?
+
+
+[02/23/2023 16:31] 0xbebis
+we are
+
+
+[02/23/2023 16:31] 0xbebis
+it's the currently configured staking token
+
+
+[02/23/2023 16:32] 0xbebis
+i occupy the pool
+
+
+[02/23/2023 16:32] 0xbebis
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/image-0AEA1.png
+
+
+[02/23/2023 16:33] dontonka
+something im not understanding i guess, the current SP deployed on OP contract is interacting with the 0x39FdE5 not 0x9918471, no ?
+
+
+[02/23/2023 16:34] kchmielewski.eth
+Do you guys use Echidna? I see that your EchidnaTester is different from the OG liquity one. It requires some constructor params like the treasury, governance, collateral and guardian addresses. Do you have some special config to run the fuzzing campaign?
+
+{Reactions}
+👀 
+
+[02/23/2023 16:36] co0nan
+I have a question not related to above point: when user calls `provideToSP` with 200 LUSD aka ERN for example, he should receive LQTY aka OATH in return, right? if so, what is the ratio for ERN/OAHT
+
+
+[02/23/2023 16:37] dontonka
+for example here i claimed my OATH from the SP earning.. CommunityIsssuance is using 0x39FdE5 to transfer OATH to me.
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/image-68CEA.png
+
+
+[02/23/2023 16:42] dontonka
+from what i understand its your fraction of the pool, so if you deposit 200 ERN, and there are 2000 ERN in the pool, you would get 10% of the issuance.. its a little more complicated how the calculation is done, but simply that seem to be it. happy from the team to correct my statement. code for this calculation is inside `getDepositorLQTYGain` and `_getLQTYGainFromSnapshots` from StabilityPool.sol.
+
+
+[02/23/2023 17:31] zokunei
+No, Echidna is not configured properly in the Liquity repo and we were unable to get it working before the contest
+
+{Reactions}
+✅ (3) 
+
+[02/23/2023 17:32] zokunei
+unfortunately
+
+
+[02/23/2023 17:34] 0xbebis
+the reward is OATH
+
+{Reactions}
+👍 (2) 
+
+[02/23/2023 17:34] 0xbebis
+but the staking token is bOATH
+
+{Reactions}
+👍 (2) 
+
+[02/23/2023 17:34] 0xbebis
+might have misunderstood your question
+
+
+[02/23/2023 17:42] dec3ntraliz3d
+When the system goes into recovery mode, there is no borrowing fee. Is my understanding correct?
+
+
+[02/23/2023 17:48] kchmielewski.eth
+Cool, thanks!
+
+{Reactions}
+👍 
+
+[02/23/2023 17:51] remaerd369
+Hey can I dm you a question about echidna ?
+
+
+[02/23/2023 17:51] kchmielewski.eth
+Sure thing
+
+{Reactions}
+👍 
+
+[02/23/2023 18:13] tess3rac7
+That sounds right from memory but I'd have to double check
+
+
+[02/23/2023 19:43] trustminimised
+I'm a little confused by the strategists in the `ReaperBaseStrategyv4` context. It seems like, from the vault's perspective, a 'strategist' is a contract whose intention is returning positive ROI.
+But in the context of `ReaperBaseStrategyv4` there is a distinction between the admins of the contract and `strategists`, both being arrays of addresses. 
+Are strategists there EOAs? Other contracts? Or smart wallets? 
+Thanks.
+
+
+[02/23/2023 20:34] tess3rac7
+Strategy is a contract. Strategist is an EOA representing the human who authored the strategy.
+
+
+[02/23/2023 20:35] tess3rac7
+Strategist role is one of the many levels of access. Guardian is a higher role than strategist. Admin is higher. Default_admin_role is highest.
+
+
+[02/23/2023 20:36] tess3rac7
+Look at the function cascadingAccess
+
+
+[02/23/2023 20:37] tess3rac7
+Vault interfaces with strategies (smart contracts) to allocate capital and generate yield.
+
+Strategists, like myself, can tweak parameteres within the vault/strategy contracts.
+
+
+[02/23/2023 22:57] dontonka
+@Justin Bebis sent you a friend request, would like to DM pls.
+
+
+[02/23/2023 22:57] 0xbebis
+you can DM me either way
+
+
+[02/23/2023 22:58] 0xbebis
+but accepted
+
+
+[02/23/2023 23:16] ladboy233
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/image-17191.png
+
+
+[02/23/2023 23:16] ladboy233
+there are four branches. Which one should we clone?
+
+
+[02/23/2023 23:20] tess3rac7
+main, everything else is merged
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/Screenshot_from_2023-02-23_18-19-50-22D4C.png
+
+
+[02/23/2023 23:24] ladboy233
+thanks
+
+
+[02/24/2023 08:44] gjaldon
+Does OATH have 18 decimals?
+
+
+[02/24/2023 11:21] dontonka
+yes, https://optimistic.etherscan.io/token/0x39fde572a18448f8139b7788099f0a0740f51205
+
+{Embed}
+https://optimistic.etherscan.io/token/0x39fde572a18448f8139b7788099f0a0740f51205
+Oath Token (OATH) Token Tracker | Optimism
+Oath Token (OATH) Token Tracker on Etherscan shows the price of the Token $0.0000, total supply 7,522,454.915027447492134279, number of holders 393 and updated information of the token. The token tracker page also shows the analytics and historical data.
+
+{Reactions}
+👍 
+
+[02/24/2023 11:22] dontonka
+same for bOATH
+https://optimistic.etherscan.io/token/0x99184713bad36bdcbc31453670fbb0d2ec3cfcc4
+
+{Embed}
+https://optimistic.etherscan.io/token/0x99184713bad36bdcbc31453670fbb0d2ec3cfcc4
+test-bOATH (BPT-TBOATH) Token Tracker | Optimism
+test-bOATH (BPT-TBOATH) Token Tracker on Etherscan shows the price of the Token $0.0000, total supply 721.639840583871627638, number of holders 3 and updated information of the token. The token tracker page also shows the analytics and historical data.
+
+{Reactions}
+🙏 
+
+[02/24/2023 11:28] gjaldon
+Thank you 🙏🏼
+
+
+[02/24/2023 13:42] golanger
+Hi guys, new to c4. Been auditing in house thought I would try and did some value on this contract. Quick question; I know there has been some slither analysis done for these repos, am I able to build on this at all? Or is that out of scope for rewards? Thanks
+
+
+[02/24/2023 13:43] golanger
+Add* value
+
+
+[02/24/2023 13:44] dadekuma
+yes, as long as it's not included in the automated finding list
+
+
+[02/24/2023 14:10] golanger
+Ok so it’s a case of running slither analysis again locally to see if they match up right?
+
+
+[02/24/2023 21:12] co0nan
+what is the difference between LUSD debt vs LUSD token?
+
+
+[02/24/2023 21:19] tess3rac7
+what do you mean? one is a quantity the other is a token
+
+{Reactions}
+thankyou 
+
+[02/24/2023 21:50] alexxander
+As I understand it ActivePool holds collateral and keeps the LUSD debt (purely the amount) while the actual tokens are held in  the StabilityPool
+
+{Reactions}
+thankyou 
+
+[02/25/2023 08:18] supernovahs
+What is the decimal precision in mapping (address => uint256) internal LUSDDebt; ?
+
+
+[02/25/2023 08:19] supernovahs
+`getEntireSystemDebt` is returning 283379925000000000000
+
+
+[02/25/2023 08:19] supernovahs
+for weth
+
+
+[02/25/2023 09:24] jayusjay
+Can anyone point me to the right direction of which private key to use for the .env in ethos-vaults?
+I copied a sample ganache key in there but it says key too long
+
+
+[02/25/2023 09:29] descharre
+You can just rename .env.example to .env
+
+{Reactions}
+🙏 
+
+[02/25/2023 10:11] beirao
+When copilot audit for you.
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/image-C8F67.png
+
+{Reactions}
+😂 (8) 
+
+[02/25/2023 10:50] 0xsurena
+who can define   _maxFeePercentage ?
+
+
+[02/25/2023 12:01] co0nan
+@0xSurena  it's a user controllable input.
+
+
+[02/25/2023 12:20] dontonka
+as far as i understand, the LUST == ERN token, which is 1e18. Also all internal calculation on money is also aligned at 1e18. https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Core/contracts/Dependencies/LiquityMath.sol#L14
+
+{Embed}
+https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Core/contracts/Dependencies/LiquityMath.sol
+2023-02-ethos/LiquityMath.sol at main · code-423n4/2023-02-ethos
+Contribute to code-423n4/2023-02-ethos development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/ff3fa3f8-9c74-450e-9309-0c1d315e2339-53152
+
+
+[02/25/2023 14:37] co0nan
+who is "_treasuryAddress" ?
+
+
+[02/25/2023 21:56] koolexc
+StabilityPool
+> Users can deposit ERN in here, which gets utilized for providing quick and efficient liquidations for unhealthy troves
+how is it utilized?
+
+
+[02/25/2023 22:15] dontonka
+When operations occurs in the application (opening trove, closing trove, etc), some contract (I think TroveManager) will be called and might liquidate trove that have a low CR (lower then critical ratio) or will liquidate those under minimum CR.. when a liquidation happen, the debt on the trove (ERN borrowed) needs to be paid back, that is not paid back by the borrower, he will not even know his trove has been liquidated until he check back the application.. so when such liquidation occurs, the debt is paid by the Stability Pool, then the collaterals from this liquidation will be distributed among the Stability Pool stakers to compensate the loss in ERN they will have. Contributing to the Stability Pool could be seen as an exchange for ERN to get cheaper collaterals in the end, plus receiving OATH token as a bonus. Kind of an imparment loss when providing liquidity on uniswap, cause the ERN you deposit will always trend toward 0 replaced by collaterals, plus the OATH as explained.
+
+
+[02/25/2023 22:19] koolexc
+Thank you for the detailed explanation!
+What confused me a bit "quick liquidation" . Is there another way to liquidate not quickly or is this just to compare it with other lenders in the market from a business point of view ?
+
+
+[02/26/2023 04:22] dec3ntraliz3d
+External users have the option to initiate the liquidation of an under-collateralized trove by calling either the `liquidateTroves()` or `batchLiquidateTroves()` function.  However this is less efficient way compared to stability pool.
+
+{Reactions}
+👍🏻 
+
+[02/26/2023 04:23] dec3ntraliz3d
+I think this will be a multi-sig wallet controlled by OATH governance.
+
+
+[02/26/2023 05:43] Rvi#5470
+how often vault goes to emergency shutdown?
+
+
+[02/26/2023 06:51] supernovahs
+Nope.
+ require(_treasuryAddress != address(0), "Treasury cannot be 0 address");
+
+{Reactions}
+✅ (2) 
+
+[02/26/2023 06:51] supernovahs
+In active pool they are not checking if treasury address is a contract
+
+{Reactions}
+✅ 
+
+[02/26/2023 10:10] golanger
+Good find. There should be a test case written for that.
+
+
+[02/26/2023 10:36] 2997ms
+Hi, in CollateralConfig.sol, there is Config struct ```    struct Config {
+        bool allowed;
+        uint256 decimals;
+        uint256 MCR;
+        uint256 CCR;
+    }``` Could I ask what the use of "allowed" here? What does "allowed" control?
+
+
+[02/26/2023 10:37] 0xsurena
+assets are whitelisted , and any asset has it's own struct, allowed means for example USDT is allowed or no
+
+
+[02/26/2023 10:38] 0xsurena
+borrowerOperations ,
+
+
+[02/26/2023 10:38] 0xsurena
+function _requireValidCollateralAddress(address _collateral) internal view {
+        require(
+            collateralConfig.isCollateralAllowed(_collateral),
+            "BorrowerOps: Invalid collateral address"
+        );
+    }
+
+
+[02/26/2023 10:39] 2997ms
+I only find the logic that sets it to true. But I didn't find the logic that sets it to false.  Maybe I've missed sth.
+
+
+[02/26/2023 10:39] 0xsurena
+Yes, in initialize, only set to tue
+
+
+[02/26/2023 10:41] 2997ms
+ok, got it. Thanks
+
+
+[02/26/2023 11:27] koolexc
+All deps of in-scope contract are in-scope except what's listed explicitly (e.g. Ethos-Core/contracts/Dependencies/) . Is this correct?
+For example, is PriceFeed in-scope or out of scope?
+
+
+[02/26/2023 11:30] koolexc
+@Justin Bebis
+
+
+[02/26/2023 11:33] supernovahs
+@Justin Bebis dmed a ques
+
+
+[02/26/2023 11:44] supernovahs
+What is the meaning of `entireTroveDebt` in plain english?
+
+
+[02/26/2023 12:35] 0xsurena
+what is the difference between collAmount mapping and yieldingAmount mapping in activePool contract ?
+
+
+[02/26/2023 13:26] liobrasil
+OATH is received from redemption and issuance fees. OATH is not liquidation related
+
+
+[02/26/2023 14:02] aba1842
+do we know that will be the initial collateral tokens?
+
+
+[02/26/2023 14:03] aba1842
+it seems so
+
+
+[02/26/2023 14:12] Rvi#5470
+`collAmount` is the entire collateral amount but `yieldingAmount` is just the amount of collateral that used for yield farming
+
+{Reactions}
+✅ 
+
+[02/26/2023 14:55] tess3rac7
+ideally never, unless something bad happens
+
+{Reactions}
+👍 
+
+[02/26/2023 14:56] tess3rac7
+it's a multisig controlled by builders where part of the revenue from the vault is directed to
+
+
+[02/26/2023 14:56] tess3rac7
+if not set to true, the default value of a solidity variable is false. any collaterals besides the ones that are explicity whitelisted are not allowed
+
+
+[02/26/2023 14:58] tess3rac7
+see my message re: pricefeed here https://discord.com/channels/810916927919620096/1075513398688743524/1076648988637405214
+
+
+[02/26/2023 14:59] koolexc
+Thanks!
+Does this apply for all contracts that are not mentioned as out-of-scope ? I'm aware that the focus on what's listed in-scope though
+
+
+[02/26/2023 15:00] tess3rac7
+`// Return the Troves entire debt and coll, including pending rewards from redistributions.`
+
+
+[02/26/2023 15:00] tess3rac7
+generally speaking yes
+
+{Reactions}
+👍🏻 
+
+[02/26/2023 16:47] peakbolt
+did anybody encountered a "JavaScript heap out of memory" error when running hardhat tests on ethos-core?  How do you fix the issue? I have tried adding --max-memory 8192 but it doesnt help.. appreciate any advice thanks. 🙏🏼
+
+
+[02/26/2023 16:58] doublesharp
+I didn't but try using `--max-old-space-size=8192`
+
+
+[02/26/2023 20:51] peakbolt
+thanks. but doesnt work for me though
+
+
+[02/27/2023 14:47] aba1842
+Long shot but I have seen something similar in other projects if you are using windows with x32 binaries. Or your system has, say, only 4GB RAM memory. It can halt because of no memory. But by your command you probably have at least 16BG
+
+
+[02/27/2023 15:09] peakbolt
+thanks for the suggestions. Im using 64-bit Ubuntu VM on a Windows machine. Given it 12GB ram..
+
+
+[02/27/2023 15:09] peakbolt
+what did you guys use to run the full test without running out of memory?
+
+
+[02/27/2023 15:14] aba1842
+Ubuntu 22.04.1 LTS x64 with 32 GB RAM, worked from the start, all tests, but a bit slow
+
+
+[02/27/2023 15:15] peakbolt
+how about ur nodejs version?
+
+
+[02/27/2023 15:15] aba1842
+16.17.0
+
+
+[02/27/2023 15:15] peakbolt
+thanks
+
+
+[02/27/2023 15:15] aba1842
+you're welcome!
+
+
+[02/27/2023 15:16] user137#9935
+works with v14.21.2 too, same config as ABA for hardware ^^, maybe just use more ram on your VM or try booting on ubuntu from usb key
+
+
+[02/27/2023 15:16] peakbolt
+im on Ubuntu 22.04.1 LTS x64 and Nodejs 16.19.0
+
+
+[02/27/2023 15:17] peakbolt
+yea i htink its because im on 16GB ram
+
+
+[02/27/2023 15:17] peakbolt
+thanks man
+
+
+[02/27/2023 18:03] 3dgeville#0311
+Which dev can I dm?
+
+
+[02/27/2023 18:34] tess3rac7
+you can dm me
+
+{Reactions}
+❤️ 
+
+[02/27/2023 19:34] 0xchinedu
+Please does the Ethos Reserve make use of upgradeable contracts?
+
+
+[02/27/2023 19:37] tess3rac7
+It doesn't use upgradeable contracts, but the protocol itself can be upgraded via a new deployment
+
+
+[02/27/2023 19:40] matin6517
+The `ReaperStrategyGranarySupplyOnly ` inherits the OpenZeppelins' UUPS, am I right?
+
+
+[02/27/2023 19:42] tess3rac7
+That's the vault side of things. Not the core Ethos Reserve protocol.
+
+
+[02/27/2023 19:42] tess3rac7
+But yes, the strategies of the vault do use UUPS
+
+
+[02/27/2023 19:46] 0xchinedu
+I think both the valut and core are part of the Ethos Reserve
+
+
+[02/27/2023 19:55] tess3rac7
+one could technically deploy the protocol with 0% allocated to vaults. vaults aren't necessary for the core functionality of the system. one could also not add any strategies to the vault, or add non-upgradeable strategies to the vault (UUPS is only used for the strategy, not the vault).
+
+
+[02/27/2023 19:56] tess3rac7
+but yes, the system will ideally be >0% allocated to vaults, and the vaults will have strategies that will likely be upgradeable. So what you're saying is also equally true perhaps
+
+
+[02/28/2023 01:45] PingT#5173
+Hello, im new here, I have a question about using of a function,can anyone help me
+
+
+[02/28/2023 12:22] 0xhacksmithh
+HII the link for formula for a depositor's accumulated collateral gain in SabilityPool.sol not working, is there other links
+
+
+[02/28/2023 14:53] tess3rac7
+try this https://github.com/liquity/dev/blob/main/papers/Scalable_Reward_Distribution_with_Compounding_Stakes.pdf
+
+{Embed}
+https://github.com/liquity/dev/blob/main/papers/Scalable_Reward_Distribution_with_Compounding_Stakes.pdf
+dev/Scalable_Reward_Distribution_with_Compounding_Stakes.pdf at mai...
+Liquity monorepo containing the contracts, SDK and Dev UI frontend. - dev/Scalable_Reward_Distribution_with_Compounding_Stakes.pdf at main · liquity/dev
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/dev-BE2B8
+
+
+[02/28/2023 16:07] 0xhacksmithh
+@uint256inc  thanks
+
+
+[02/28/2023 16:30] acegawd
+Dmed you @Justin Bebis
+
+
+[02/28/2023 17:20] acegawd
+which one of the devs are currently available? @uint256inc @Zokunei
+
+
+[02/28/2023 17:57] tess3rac7
+sure you can DM me
+
+
+[02/28/2023 17:58] parsely.
+Hi @Justin Bebis @uint256inc Please may I check, how is the EOA (except via the website) granted the DEPOSITOR role?
+
+
+[02/28/2023 17:58] 0xbebis
+only the ActivePool can deposit
+
+
+[02/28/2023 17:59] 0xbebis
+if you want to test live strategies you can go on pain.finance on the Fantom network
+
+
+[02/28/2023 17:59] 0xbebis
+and the super admin grants depositor roles
+
+
+[02/28/2023 18:02] parsely.
+thank you
+
+
+[02/28/2023 19:40] golanger
+Does anyone know where access control is initiated in the contract/s?
+
+
+[02/28/2023 19:56] co0nan
+for Ethos-core I beleive there is no special privilege, once system deployed all owners got revoked except for 1- 2 contracts
+
+{Reactions}
+✅ 
+
+[03/01/2023 13:46] koolexc
+Anywhere the chains listed (e.g. Eth, Polygon ..etc) that are used for the protocol ?
+
+
+[03/01/2023 14:38] tess3rac7
+Optimism mainnet
+
+{Reactions}
+👍🏻 (2) 
+
+[03/01/2023 14:41] koolexc
+Thanks
+
+
+[03/01/2023 15:54] peritoflores
+Hi, is there any list of collaterals you want to support ?
+
+
+[03/01/2023 16:22] adeolu
+how do you create a trove?
+
+
+[03/01/2023 16:32] tess3rac7
+WBTC and WETH
+
+
+[03/01/2023 16:33] tess3rac7
+Either use the front-end or interact with the BorrowerOperations contract directly. You will have to approve it for the amount of collateral you wish to deposit and call the `openTrove` function.
+
+
+[03/01/2023 16:34] adeolu
+Okay thanks. Understood
+
+
+[03/01/2023 17:21] 0xsurena
+only this ?
+
+
+[03/01/2023 17:31] tess3rac7
+yes
+
+
+[03/01/2023 21:34] 2997ms
+Could anyone help to explain F_Collateral and F_LUSD a bit? I don't really get them
+
+
+[03/01/2023 21:35] 2997ms
+It's like a sum?
+
+
+[03/01/2023 21:35] 2997ms
+like totalLQTYStaked?
+
+
+[03/01/2023 21:35] matin6517
+Which chain do you target to deploy Ethos contracts?
+
+
+[03/01/2023 21:40] tess3rac7
+optimism, they're already live
+
+{Reactions}
+🙏 
+
+[03/01/2023 21:41] tess3rac7
+it's a running sum of fees per unit staked. sort of like `accRewardPerShare` if you're familiar with masterchef
+
+
+[03/01/2023 21:42] tess3rac7
+if you entered the pool yesterday when F_LUSD was 10, and you staked 1000 tokens, and if today F_LUSD is 12, then your rewards are (12 - 10) * 1000
+
+
+[03/01/2023 23:27] 2997ms
+@uint256inc DM you
+
+
+[03/02/2023 10:21] mahdi9606
+What is difference between allocated and allocBPS of a strategy in reapervault2 ?
+
+
+[03/02/2023 11:38] 0xsurena
+What is difference between mapping(address => uint256) internal collAmount and mapping(address => uint256) public yieldingAmount ?
+
+
+[03/02/2023 14:45] ladboy233
+is the price feed in scope？
+
+
+[03/02/2023 14:51] koolexc
+https://discord.com/channels/810916927919620096/1075513398688743524/1079417055503208581
+
+
+[03/02/2023 14:53] ladboy233
+ok
+
+
+[03/02/2023 14:53] ladboy233
+ok ty
+
+{Reactions}
+👍🏻 
+
+[03/02/2023 15:08] koolexc
+what are the tokens that might be used in ReaperVault2?
+
+
+[03/02/2023 15:18] tess3rac7
+`allocated` is the actual amount allocated to a strategy (example 500 WETH). `allocBPS` is the % (in basis points) of the vault's total assets that should be allocated to the strategy (example 3000 for 30%).
+
+
+[03/02/2023 15:19] tess3rac7
+`collAmount` tracks the entire collateral amount that is part of the ActivePool. This includes both assets in the ActivePool, as well as principal deposited into the vault. `yieldingAmount` is just the principal deposited into the vault.
+
+
+[03/02/2023 15:19] tess3rac7
+Same tokens as the collaterals
+
+
+[03/02/2023 15:19] koolexc
+WBTC and WETH ?
+
+
+[03/02/2023 15:19] tess3rac7
+yes
+
+
+[03/02/2023 15:19] koolexc
+Thanks
+
+
+[03/02/2023 17:05] beirao
+The ReaperVaultV2 and ReaperBaseStrategyv4 contracts are forked or inspired from somewhere?
+
+
+[03/02/2023 17:07] tess3rac7
+Yearn vaults, written in solidity
+
+
+[03/02/2023 17:07] tess3rac7
+https://github.com/yearn/yearn-vaults/tree/master/contracts
+
+{Embed}
+https://github.com/yearn/yearn-vaults/tree/master/contracts
+yearn-vaults/contracts at master · yearn/yearn-vaults
+Yearn Vault smart contracts. Contribute to yearn/yearn-vaults development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/yearn-vaults-12442
+
+
+[03/02/2023 17:07] beirao
+So you rewrote these contracts from vyper to solidity ?
+
+
+[03/02/2023 17:08] beirao
+Or maybe just the vault
+
+
+[03/02/2023 17:26] tess3rac7
+I took some parts and added them our old vault and base strategy
+
+{Reactions}
+👍 
+
+[03/02/2023 17:27] tess3rac7
+And then added 4626 on top
+
+
+[03/02/2023 17:39] beirao
+👍🏼
+
+
+[03/03/2023 12:58] 0xsurena
+what is usage of MIN_NET_DEBT  ?
+
+
+[03/03/2023 13:01] beirao
+// Minimum amount of net LUSD debt a trove must have
+
+
+[03/03/2023 13:03] hx0111.
+Why netDept after adding fee is commented out?
+
+
+[03/03/2023 13:53] golanger
+What could be the damage to the user if you aren’t issued with new lusd tokens after withdrawing lusd from a trove?
+
+
+[03/03/2023 14:57] tess3rac7
+can you specify the file/line of code you're looking at?
+
+
+[03/03/2023 14:58] tess3rac7
+I don't follow. Why wouldn't the user get new lusd tokens if they are withdrawing lusd tokens?
+
+
+[03/03/2023 17:12] hx0111.
+In BorrowerOperations.sol, openTrove() line 191
+
+
+[03/03/2023 17:13] tess3rac7
+this line? https://github.com/code-423n4/2023-02-ethos/blob/main/Ethos-Core/contracts/BorrowerOperations.sol#L191
+
+I don't see any comment?
+
+
+[03/03/2023 17:15] hx0111.
+🤔I forked the repo and it is commented !
+
+
+[03/03/2023 17:21] hx0111.
+Ok, maybe something went wrong in my side, thanks for ur andwer
+
+
+[03/04/2023 00:39] golanger
+It’s ok, I was following a trail of flow, and thought I saw a flaw here.
+
+
+[03/04/2023 09:59] .mangyvagrant
+what is the reasoning behind making the changes in updateCollateralRatios in CollateralConfig irreversible?
+
+
+[03/04/2023 11:25] Franfran#5067
+if you walk backwards, it may make some trove underwater which shouldn't have been before. Any fat finger would have deadly consequences for the protocol
+
+{Reactions}
+👍 (2) 
+
+[03/04/2023 11:26] Franfran#5067
+no sponsor fren connected atm ?
+
+
+[03/04/2023 12:17] .mangyvagrant
+ty
+
+
+[03/04/2023 17:06] 0xbtk
+@uint256inc DMED YOU
+
+
+[03/04/2023 18:08] malfurionwhitehat
+Hi fellow wardens
+How do you all audit a huge codebase that was forked/inspired by another project? Do you start off with the main project? Liquity in this case
+
+
+[03/04/2023 18:12] malfurionwhitehat
+I'm trying to do a `diff` for a better understanding of what changed
+
+
+[03/04/2023 20:02] co0nan
+The files in scope are the ones that modified, that what I personally would focus on.
+
+
+[03/04/2023 22:23] aba1842
+@uint256inc are you available for a small question, or any other one from the team?
+
+{Reactions}
+👍 
+
+[03/04/2023 23:06] aba1842
+please accept my friend request if so, I can't DM you 😦
+
+
+[03/04/2023 23:22] aba1842
+thanks for the help! (we discussed in DM)
+
+
+[03/05/2023 01:56] dec3ntraliz3d
+I have a few questions about the Strategists.
+1. Who are the strategists? Are they part of the Ethos team?
+2. Can anyone request to become a strategist?
+3. Is there a 1:1 relationship between a strategy and strategist ?
+
+
+[03/05/2023 05:28] tess3rac7
+Strategists are devs of Ethos + other devs at Byte Masons. Every strategy will typically have the same strategists (devs)
+
+{Reactions}
+👍 (2) 
+
+[03/05/2023 11:53] 0xsomeone
+@uint256inc added for a couple of questions!
+
+
+[03/06/2023 01:57] 0xc86
+@uint256inc DMed you ser
+
+
+[03/06/2023 17:10] koolexc
+@uint256inc Heyy, DMed you for a question
+
+
+[03/07/2023 11:25] neon2835
+Hi everyone, I have a question: If I submit a High Risk, but JUDGES decides it should be a Medium Risk, will I end up being rewarded with Medium Risk, or will I not be rewarded at all?
+
+
+[03/07/2023 11:43] koolexc
+You will be rewarded for sure
+
+
+[03/07/2023 11:57] 0xc86
+is anyone from the sponsors available (for some last moment doubts)?
+
+
+[03/07/2023 15:38] 0xbebis
+sure what's up
+
+
+[03/07/2023 16:14] 0xc86
+nvm ,uint256inc cleared my doubts  : )
+
+
+[03/07/2023 17:56] acegawd
+Dmed @Justin Bebis
+
+
+[03/07/2023 18:05] 0xsomeone
+Hello, the submission form appears to be down? I am getting a `502` error. Could we also extend the deadline by an hour or two to accommodate for such downtime?
+
+
+[03/07/2023 18:07] beirao
+Got the same. firefox works for me.
+
+{Reactions}
+🤔 
+
+[03/07/2023 18:07] 0xsomeone
+Lemme try another browser, thanks for the tip!
+
+
+[03/07/2023 18:08] beirao
+maybe the new site
+
+
+[03/07/2023 18:09] kartoonjoy
+gonna bring this into a thread
+
+{Reactions}
+🙏 
+
+[03/07/2023 19:06] apvlki
+quick last minute q @Justin Bebis  🙏🏼
+
+
+[03/07/2023 20:02] C4
+**🚨 CONTEST ALERT**
+
+@🐺wardens The **Ethos Reserve** contest is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Keep an eye on #📢announcements for regular updates on how the contest is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a gardener if you have questions along the way!
+
+{Reactions}
+C4Keycap (26) ✅ (15) goose (4) 
+
+[03/07/2023 20:03] parsely.
+Thanks for letting us participate, From my point of view --Well done to the Dev team the code was really good.
+
+{Reactions}
+✅ (8) 
+
+[03/07/2023 20:04] ladboy233
+🥹
+
+{Reactions}
+👀 (3) 🫂 (3) 
+
+[03/07/2023 20:04] chaindev
+learnt a lot from the code 😍
+
+
+[03/07/2023 20:18] tess3rac7
+Thanks to all of you. It was a great experience and we really appreciate all the questions and reports 🙏 🙌
+
+{Reactions}
+hi5 (5) 
+
+[03/07/2023 20:24] 0xbebis
+great work everyone :hi5:
+
+{Reactions}
+🫡 (2) hi5 (2) 
+
+[03/07/2023 20:33] golanger
+Agreed, code was solid
+
+
+[03/07/2023 20:47] beirao
+Definitely congratulation Bytes Masons !   :hi5: Spent 50 hours on this ones. Finding bugs was not easy.
+
+{Reactions}
+☝🏻 (2) 
+
+[03/07/2023 21:15] aba1842
+and here I was with 35.7h thinking I was special :)) nice!
+
+{Reactions}
+🥲 😍 (3) 
+
+[03/08/2023 10:57] cryptothemex
+Hi, i am participating for the first time in c4rena Competitions and would like to know "how will i know the status of my submissions, these have been  accepted or rejected"?
+
+
+[03/08/2023 11:14] parsely.
+The contest now goes into judging. It takes a while before the results are published, it will be on this channel, and also #📢announcements .
+
+{Reactions}
+👍 
+
+[03/08/2023 11:15] cryptothemex
+is it possible to see judges comments on my submissions in my c4rena account?
+
+
+[03/08/2023 11:17] parsely.
+I am not sure sorry, but I don't think comments are available per warden, ADMINS please can you correct me if I am wrong.
+
+{Reactions}
+👍 
+
+[03/08/2023 11:29] kartoonjoy
+You'd be able to see results in a month or so, once the report is published. As stated by parsley, there may not be individual comments though, on each submission.
+
+
+[03/08/2023 12:24] 0xsomeone
+Is any judge active?
+
+
+[03/08/2023 17:51] 0xbebis
+Thanks again everyone, I hope you get a chance to try out Ethos Reserve once it's live :ysalute: 
+
+https://twitter.com/EthosReserve/status/1633515230574813186?s=20
+
+{Embed}
+Ethos Reserve (@EthosReserve)
+https://twitter.com/EthosReserve/status/1633515230574813186?s=20
+Massive thanks to all the @code4rena auditors who worked on securing Ethos Reserve these last 3 weeks.
+
+While judges compile and score results, our team is preparing for a busy week of bug fixes, optimizations, and documentation.
+
+Are you ready?
+Twitter
+
+{Reactions}
+hi5 (12) praisethesun (2) 
+
+[03/08/2023 17:51] 0xbebis
+I'll make sure to write about the contest and all the changes we made after the fact to keep you all updated
+
+{Reactions}
+hi5 (9) 👍 (2) 
+
+[03/08/2023 17:51] 0xbebis
+wonderful experience for us
+
+{Reactions}
+hi5 (8) 💜 (4) 
+
+[03/08/2023 18:52] dec3ntraliz3d
+enjoyed reviewing the contracts and learned two projects ( Liquity + Ethos) at once 😉 Goodluck !!
+
+{Reactions}
+ysalute 
+
+[03/10/2023 09:33] cryptothemex
+do we get judges feedback on submitted issues?
+
+
+[03/10/2023 13:35] aba1842
+some judges do leave feedback on the issues, some don't. But they are not required to, they can simply reject your issue without any feedback, so keep that in mind
+
+
+[03/10/2023 15:48] gmanhaes
+first time sending an issue on codearena, how long till we get results on this?
+
+
+[03/10/2023 15:59] paroxysm9999
+Timelines vary - give it 3/4 weeks.
+
+
+[03/10/2023 16:00] gmanhaes
+thanks!
+
+
+[03/10/2023 17:31] cryptothemex
+once a competition is closed, one cannot see even his own submissions? will the submissions be visible once result is published? where to see status of own submissions (accepted or rejected etc)
+
+
+[03/10/2023 17:40] 0xsorrynotsorry
+Exactly. Once the report is published, you can see all the submissions in the concerned GitHub repo. The report will be published on code4rena website and it will have direct links to the repo.
+
+
+[03/10/2023 18:28] cryptothemex
+only the accepted submissions or rejected ones also?
+
+
+[03/10/2023 18:37] 0xsorrynotsorry
+Accepted, rejected, downgraded.. all..
+
+{Reactions}
+✅ 
+
+[03/10/2023 20:10] aba1842
+exactly as @sorryNotsorry indicated. When the report is published you get to see your submissions regardless. Note, the rewards/top will be published before the report. They are not at the same time.
+
+
+[03/10/2023 20:12] co0nan
+so we get awarded without knowing if our submissions got downgraded for example?
+
+
+[03/10/2023 20:13] aba1842
+yes. If you submitted a high, but was downgraded to medium, you don't know it until after the report
+
+{Reactions}
+🥲 
+
+[03/10/2023 20:42] Parad0x#6453
+Hello,
+
+My apologize for the question but Ethos was my first audit with C4, how long does a judging phase last usually ?
+
+
+[03/10/2023 22:14] dontonka
+https://discord.com/channels/810916927919620096/1075513398688743524/1083781261123932290
+
+
+[03/10/2023 22:15] dontonka
+It was also my first contest, eager to see how it goes XD.
+
+
+[03/12/2023 16:41] supernovahs
+Contest has ended, but curious to know what the ethos team will do after the USDC and DAI depeg.
+
+
+[03/12/2023 16:54] beirao
+https://twitter.com/0xBebis_/status/1634608757958414336
+
+{Embed}
+bebis (@0xBebis_)
+https://twitter.com/0xBebis_/status/1634608757958414336
+@NickDrakon Our company is KYC'd with circle so if they don't restore the on-chain peg in a timely manner then we can redeem for $1 through their API.
+
+If that becomes a problem then we swap to $ERN in a week or so and call our lawyers.
+
+"Always redeemable for $1" is literally their tagline
+Twitter
+
+{Reactions}
+👍 (3) 
+
+[03/24/2023 06:38] matin6517
+I realized I've submitted my QA report in the gas report part of the contest.😬
+Would it be possible for dear judges to consider my gas report as QA?
+Sorry for the mistake😬🙏
+
+{Reactions}
+🙏🏼 (4) 👀 
+
+[03/25/2023 04:02] gjaldon
+Ethos just finished addressing issues from the audit reports. Does that means results are coming out soon?
+
+{Reactions}
+💯 (18) 👆 (3) 👀 
+
+[03/25/2023 13:51] mgf15
+https://tenor.com/view/dance-gif-19132088
+
+{Embed}
+https://tenor.com/view/dance-gif-19132088
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/dance-62FB3.png
+
+
+[03/25/2023 13:51] mgf15
+i want to see my result on this
+
+
+[03/26/2023 10:12] xyzbtchunt
+Any update serr?
+
+
+[03/29/2023 13:30] itsmetechjay
+:code4rena: 💸 🎉 Awards for **Ethos Reserve**:
+
+$13,062.10 USDC » @hansfriese 
+$11,668.80 USDC » @0xBeirao 
+$11,609.81 USDC » @Alex The Entreprenerd 
+$9,600.64 USDC » @bin2chen 
+$9,417.93 USDC » @gjaldon 
+$5,858.74 USDC » @peritoflores 
+$4,511.52 USDC » @rbserver 
+$4,281.75 USDC » @hyh 
+$3,838.20 USDC » @koxuan 
+$3,838.20 USDC » @chaduke 
+$3,168.53 USDC » @Koolex 
+$3,091.91 USDC » @DadeKuma 
+$3,006.48 USDC » matrix_0wl
+$2,941.95 USDC » @0xRobocop 
+$2,697.69 USDC » @ltyu 
+$2,089.29 USDC » @fs0c 
+$2,089.29 USDC » @d3e4 
+$2,028.03 USDC » @Haipls 
+$1,140.50 USDC » @jasonxiale 
+$1,140.50 USDC » @Parad0x 
+$941.07 USDC » @0xsomeone 
+$899.00 USDC » trustindistrust
+$764.26 USDC » @0xSmartContract 
+$637.85 USDC » @peakbolt 
+$546.86 USDC » @codeislight 
+$504.79 USDC » @0xTheC0der 
+$455.47 USDC » @0xAgro 
+$455.47 USDC » @ABA 
+$455.47 USDC » CodeFoxInc (@thurendous, @TerrierLover, @retocrooman)
+$455.47 USDC » @zzzitron 
+$455.47 USDC » @0xcatellatech 
+$455.47 USDC » @Kiki 
+$455.47 USDC » SleepingBugs (@Deivitto, @0xLovesleep)
+$443.53 USDC » @0xbepresent 
+$401.42 USDC » @c3phas 
+$370.05 USDC » @arialblack14 
+$370.05 USDC » @Sathish9098 
+$370.05 USDC » @Viktor_Cortess 
+$370.05 USDC » @Deivitto
+$308.79 USDC » @0x73696d616f 
+$308.79 USDC » @Morraez 
+$308.79 USDC » @ReyAdmirado 
+$308.79 USDC » @Rageur 
+$308.79 USDC » @JCN 
+$246.18 USDC » @Kaden 
+$246.18 USDC » @PaludoX0  
+$204.11 USDC » @KingNFT 
+$204.11 USDC » @imare 
+$142.85 USDC » @AkshaySrivastav 
+$142.85 USDC » @MiloTruck 
+$103.33 USDC » DeFiHackLabs (@SunSec, @gbaleee, @anon, @Aits, @Rappie)
+$103.33 USDC » @ICP 
+$103.33 USDC » @nonce 
+$103.33 USDC » @kodyvim 
+$103.33 USDC » @0x3b 
+$103.33 USDC » @Bnke 
+$103.33 USDC » @RaymondFam 
+$103.33 USDC » @Rolezn 
+$103.33 USDC » @descharre 
+$103.33 USDC » @emmac002 
+$103.33 USDC » @cryptonue 
+$103.33 USDC » @larsson 
+$103.33 USDC » @0xackerman 
+$61.26 USDC » @dontonka 
+$61.26 USDC » UdarTeam (@AhmeT, @tourist)
+$61.26 USDC » @GreedyGoblin 
+$61.26 USDC » @2997ms 
+$61.26 USDC » @Inspectah 
+$61.26 USDC » @tsar 
+$61.26 USDC » @csanuragjain 
+$61.26 USDC » @Bobface 
+$61.26 USDC » @Co0nan
+
+{Reactions}
+🙏🏼 (8) 🔥 (12) 🎉 (5) 
+
+[03/29/2023 13:30] itsmetechjay
+$61.26 USDC » @bauer6009 
+$61.26 USDC » @Azhar
+$61.26 USDC » @rvi0x 
+$61.26 USDC » @eyexploit 
+$61.26 USDC » @rvierdiiev 
+$61.26 USDC » @btk 
+$61.26 USDC » @7siech 
+$61.26 USDC » @tnevler 
+$61.26 USDC » @Krace 
+$61.26 USDC » @chrisdior4 
+$61.26 USDC » @adeolu 
+$61.26 USDC » @vagrant 
+$61.26 USDC » @iceBear 
+$61.26 USDC » @wtin 
+$61.26 USDC » @Helios 
+$61.26 USDC » @luxartvinsec 
+$61.26 USDC » @Norah 
+$61.26 USDC » @0xnev 
+$61.26 USDC » @Breeje 
+$61.26 USDC » @0xDING99YA 
+$61.26 USDC » @martin | Founder @ ShieldifySec 
+$61.26 USDC » @Franfran 
+$61.26 USDC » @Bjorn_Bug 
+$61.26 USDC » @Dom  |  lnk.bio/hacker-dom 
+$61.26 USDC » @SuperRayss 
+$61.26 USDC » @shark 
+$61.26 USDC » @masa 
+$61.26 USDC » @lukris02 
+$61.26 USDC » @supernova 
+$61.26 USDC » V_B (@Barichek, @Vlad B | zkSync)
+$61.26 USDC » @ronnyx2017 | Offside Labs 
+$61.26 USDC » @ast3ros 
+$61.26 USDC » @peanuts 
+$61.26 USDC » @ch0bu 
+$61.26 USDC » tonisives
+$61.26 USDC » @brgltd 
+$61.26 USDC » @0x52 
+$61.26 USDC » @tsvetanovv 
+$61.26 USDC » @Kaysoft 
+$61.26 USDC » KIntern_NA (@TrungOre, @duc, @Trumpero)
+$61.26 USDC » @CryptoSan 
+$61.26 USDC » @delfin454000 
+$61.26 USDC » @eierina 
+$61.26 USDC » @nemveer 
+$61.26 USDC » @decade 
+$61.26 USDC » @Lavishq 
+$61.26 USDC » @yongskiws 
+$61.26 USDC » @Udsen 
+$61.26 USDC » @Josiah 
+$61.26 USDC » @joestakey 
+$61.26 USDC » @Raiders 
+$61.26 USDC » @Qeew 
+$61.26 USDC » @MohammedRizwan 
+$61.26 USDC » @ulqiorra 
+$42.07 USDC » @0xhacksmithh 
+$42.07 USDC » @praise 
+$42.07 USDC » @thinklab 
+$42.07 USDC » @seeu 
+$42.07 USDC » @0xSurena 
+$42.07 USDC » @vnmrtz.eth 
+$42.07 USDC » scokaf (@Scoon, @jauvany)
+$42.07 USDC » @Darshan 
+$42.07 USDC » @Madalad 
+$42.07 USDC » @TheSavageTeddy 
+$42.07 USDC » @MiniGlome (Mlome) 
+$42.07 USDC » @yamapyblack 
+$42.07 USDC » @RHaO-sec 
+$42.07 USDC » @hunter_w3b 
+$42.07 USDC » @LethL 
+$42.07 USDC » @P-384 
+$42.07 USDC » @Bough 
+$42.07 USDC » @favelanky 
+$42.07 USDC » @dec3ntraliz3d 
+$42.07 USDC » @banky 
+$42.07 USDC » @dharma09 
+$42.07 USDC » @0x6980 
+$42.07 USDC » @hl_ 
+$42.07 USDC » @atharvasama 
+$42.07 USDC » @abiih 
+$42.07 USDC » @Budaghyan  
+$42.07 USDC » @Tomio 
+$42.07 USDC » @ddimitrov22
+
+🏁 Findings summary
+---------------------------
+High risk findings: 13 total, 3 unique
+Med risk findings: 36 total, 14 unique
+Gas reports: 58 
+QA reports: 110
+
+Awards will be distributed on Polygon within the next week. Congratulations, everyone! 💸 💸 💸
+
+*Note: If you participated in this contest and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+{Reactions}
+🥳 (10) ❤️ (5) hi5 (4) 
+
+[03/29/2023 13:32] sathish9098kumar
+Nice 😀
+
+{Reactions}
+🎉 
+
+[03/29/2023 13:32] dadekuma
+congrats everyone! 🔥
+
+{Reactions}
+🔥 (3) 
+
+[03/29/2023 13:43] loserdavictor
+congrats everyone 🙂 this was my first audit
+
+{Reactions}
+🫡 ❤️ (4) 
+
+[03/29/2023 13:43] gjaldon
+Congrats to all! Looks like there were a lot of findings 👀
+
+{Reactions}
+🐧 (6) 👏 (3) 
+
+[03/29/2023 13:52] chaindev
+nobody got $1K+ award in both ethos and aragon
+how the two projects different
+
+
+[03/29/2023 13:53] chaduke3730
+congrats to all!
+
+
+[03/29/2023 13:54] 0xsurena
+when we can see report ?
+
+
+[03/29/2023 13:54] chaduke3730
+to @Koolex !
+
+{Reactions}
+💚 
+
+[03/29/2023 13:54] chaduke3730
+cheers
+
+
+[03/29/2023 14:06] web3sec
+Earned a small amount🤩
+
+
+[03/29/2023 14:06] favelanky
+Congrats to all! 🎉
+
+
+[03/29/2023 14:06] web3sec
+Congratulations everyone 🎉
+
+
+[03/29/2023 14:07] ks__xxxxx
+congrats everyone 🎉 
+looking forward to see the complete audit report soon
+
+
+[03/29/2023 14:28] hunter_w3b
+congrats to everyone 💪 :C4Keycap:
+
+
+[03/29/2023 14:40] mgf15
+what i did wrong here :10_10:
+
+
+[03/29/2023 14:44] 0xbebis
+really great work everybody
+
+{Reactions}
+🙏🏼 (5) praisethesun (2) happypepe (2) 
+
+[03/29/2023 14:59] koolexc
+To you as well! Congrats  👏 👏 👏
+
+
+[03/29/2023 15:04] gjaldon
+Thank you for the opportunity, Justin! 🙏🏼
+
+
+[03/29/2023 15:39] 0xkazimm
+Congrats to everyone 🎉
+
+
+[03/29/2023 16:09] trust90
+Great sponsor, great turnout 💯
+
+{Reactions}
+💯 (10) 
+
+[03/29/2023 16:14] hansfriese
+Great judge as well
+
+{Reactions}
+peepofancy (10) 💜 (3) 
+
+[03/29/2023 16:34] 0xjuliaaa
+Congrats everyone! Thanks for the opportunity.
+
+
+[03/29/2023 16:48] 0xjuliaaa
+When can we see the results of the submission?
+
+
+[03/29/2023 16:55] _brolee
+how many participants were in this one?
+
+
+[03/29/2023 17:13] marcin9292
+as always I'm not there xD
+
+{Reactions}
+💜 (2) 
+
+[03/29/2023 17:22] praise95
+One day you will
+Just keep researching, learning and participating in contests.
+
+{Reactions}
+💜 🐧 4739_Skeletor 10_10 
+
+[03/29/2023 17:46] loserdavictor
+and top auditors as well : )
+
+
+[03/29/2023 17:46] eme0242
+Congrats everyone🥳
+
+{Reactions}
+❤️ 
+
+[03/29/2023 17:47] loserdavictor
+i wonder if the report will be public to learn from what I missed and need to improve 🐧 🐧
+
+
+[03/29/2023 17:49] beirao
+Congrats my friends!
+
+
+[03/29/2023 17:54] eme0242
+Gjaldon how many Hs and Ms did you get?
+
+
+[03/29/2023 18:09] dec3ntraliz3d
+Man, I almost thought I got a medium this time 🙂  Grind time ... Congrats to the winners!
+
+
+[03/29/2023 21:22] codeislight
+Huge Congrats!! 👏
+
+
+[03/29/2023 21:23] Bjorn_Bug#3314
+Congrats!
+
+
+[03/29/2023 21:33] d3tonator#2281
+Hey folks, is there any way to know the reason why my submission got rejected or not listed?
+
+
+[03/29/2023 23:01] gjaldon
+1 H and 1 solo M fren
+
+{Reactions}
+👍 (5) 
+
+[03/30/2023 01:46] krace_h
+😀
+
+
+[03/30/2023 01:48] gjaldon
+and 1 invalid M 🥹
+
+
+[03/30/2023 02:02] 0xjuliaaa
+How did you know it?
+
+
+[03/30/2023 02:03] gjaldon
+It says on the results page only 1 H and 1 M but I submitted 2 Ms 😦
+
+
+[03/30/2023 02:16] 0xjuliaaa
+Did you mean this: "Med risk findings: 36 total, 14 unique"?
+
+
+[03/30/2023 02:57] gjaldon
+No, I meant this: https://code4rena.com/contests/2023-02-ethos-reserve-contest
+
+{Embed}
+https://code4rena.com/contests/2023-02-ethos-reserve-contest
+Code4rena Ethos Reserve contest
+$144,750 USDC
+16 February 2023—7 March 2023
+Code4rena - ARCHIVE-Q1-2023 - ethos-feb16 [1075513398688743524].txt_Files/c4-og-banner-0FCFA.png
+
+{Reactions}
+hi5 ❤️ 
+
+[03/30/2023 03:43] 0xjuliaaa
+Thank you sir!
+
+{Reactions}
+🫡 ❤️ 
+
+[03/30/2023 19:32] ivanrdy
+want to know it too
+
+
+[03/30/2023 20:19] c3phas.
+You'll have to wait for the report to be published
+
+
+[04/02/2023 20:13] cryptothemex
+waiting for report
+
+
+[04/23/2023 18:01] cryptothemex
+any update
+
+
+[05/15/2023 15:22] dec3ntraliz3d
+@Jay | C4 dme'd with a question.
+
+{Reactions}
+👍 
+
+[05/21/2023 08:17] cryptothemex
+hi, can someone review my submissions for ethos contract and help in learning why these were not valid?
+
+
+[05/22/2023 12:54] lirios.
+Findings repo is public so you can check there.  Normally judges add a comment when invalidating but this time it seems they have not.
+My guess would be that 475 and 478 are out of scope as Owner is expected to only supply valid data.
+479 is incorrect as this is no ETH transfer call but an ERC20 contract call. 480  is incorrect because sendOath is only called with _account = msg.sender so it can never be zero address, so check is not needed.
+
+{Reactions}
+👍 
+
+==============================================================
+Exported 562 message(s)
+==============================================================
